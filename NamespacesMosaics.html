@@ -1,0 +1,576 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEM NIS API Documentation</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-open="offCanvasMenu"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell off-canvas position-left reveal-for-medium" id="offCanvasMenu" data-off-canvas>
+        <ul class="vertical menu" data-accordion-menu data-submenu-toggle="true" data-magellan>
+          <li class="menu-text"><img src="image/logo.png" alt="NEM Logo"></li>
+          <li class="tabs-title"><a href="index.html#introduction">Introduction</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="index.html#general-information">General Information</a></li>
+              <li class="tabs-title"><a href="index.html#installation">Installation</a></li>
+              <li class="tabs-title"><a href="index.html#requests">Requests</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequests.html#NIS-status-related-requests">NIS status related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequests.html#heart-beat-request">Heart beat request</a></li>
+              <li class="tabs-title"><a href="NISrequests.html#status-request">Status Request</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AccountRequests.html#account-related-requests">Account related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-data">Retrieving account data</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AccountRequests.html#generating-new-account-data">Generating new account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-data">Requesting the account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-original-account-data-for-a-delegate-account">Requesting the original account data for a delegate account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-status">Requesting the account status</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#transaction-data-with-decoded-messages">Transaction data with decoded messages</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-harvest-info-data-for-an-account">Requesting harvest info data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-importances-for-accounts">Retrieving account importances for accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-namespaces-that-an-account-owns">Retrieving namespaces that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaic-definitions-that-an-account-has-created">Retrieving mosaic definitions that an account has created</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaics-that-an-account-owns">Retrieving mosaics that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#locking-and-unlocking-accounts">Locking and unlocking accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-the-unlock-info">Retrieving the unlock info</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-historical-account-data">Retrieving historical account data</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-related-requests">Block chain related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-the-block-chain-status-information">Requesting the block chain status information</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-height">Block chain height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-score">Block chain score</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#last-block-of-the-block-chain-score">Last block of the block chain score</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-parts-of-the-block-chain">Requesting parts of the block chain</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-a-block-with-a-given-height">Getting a block with a given height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-part-of-a-chain">Getting part of a chain</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NodeRequests.html#node-related-requests">Node related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-information-about-a-node">Requesting information about a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#basic-node-information">Basic node information</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#extended-node-information">Extended node information</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#request-for-discovering-the-neighborhood-of-a-node">Request for discovering the neighborhood of a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#complete-neighborhood">Complete neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#reachable-neighborhood">Reachable neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#active-neighborhood">Active neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#maximum-chain-height-in-the-active-neighborhood">Maximum chain height in the active neighborhood</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-node-experiences">Requesting node experiences</a></li>
+              <li class="tabs-title"><a href="NodeRequests.html#booting-the-local-node">Booting the local node</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title is-active"><a href="NamespacesMosaics.html#namespaces-and-mosaics">Namespaces and Mosaics</a>
+            <ul class="menu vertical nested is-active">
+              <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces">Namespaces</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-root-namespaces">Retrieving root namespaces</a></li>
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-a-specific-namespace">Retrieving a specific namespace</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NamespacesMosaics.html#mosaics">Mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-mosaic-definitions">Retrieving mosaic definitions</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-transactions">Initiating transactions</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transaction">Initiating a transaction</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transfer-transaction">Initiating a transfer transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-1-transfer-transactions">Version 1 transfer transactions</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-2-transfer-transactions">Version 2 transfer transactions</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#converting-an-account-to-a-multisig-account">Converting an account to a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-multisig-transaction">Initiating a multisig transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#cosigning-multisig-transaction">Cosigning multisig transaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#adding-and-removing-cosignatories">Adding and removing cosignatories</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#how-to-use-a-multisig-account">How to use a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#provisioning-a-namespace">Provisioning a namespace</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-mosaics">Creating mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-mosaic-definition">Creating a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#altering-a-mosaic-definition">Altering a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#changing-the-mosaic-supply">Changing the mosaic supply</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-signed-transaction">Creating a signed transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#gathering-data-for-the-signature">Gathering data for the signature</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#sending-the-data-to-NIS">Sending the data to NIS</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#transaction-fees">Transaction fees</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#requests-for-additional-information-from-NIS">Requests for additional information from NIS</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-the-network-time">Monitoring the network time</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-incoming-and-outgoing-calls">Monitoring incoming and outgoing calls</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-timers">Monitoring timers</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixA.html#appendix-A:-description-of-the-JSON-structures">Appendix A: Description of the JSON Structures</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixA.html#accountHistoricalDataViewModel">AccountHistoricalDataViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountImportanceViewModel">AccountImportanceViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountInfo">AccountInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaData">AccountMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaDataPair">AccountMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountPrivateKeyTransactionsPage">AccountPrivateKeyTransactionsPage</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#applicationMetaData">ApplicationMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#auditCollection">AuditCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#block">Block</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockChainScore">BlockChainScore</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockHeight">BlockHeight</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#bootNodeRequest">BootNodeRequest</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#communicationTimeStamps">CommunicationTimeStamps</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerBlockViewModel">ExplorerBlockViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerTransferViewModel">ExplorerTransferViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#extendedNodeExperiencePair">ExtendedNodeExperiencePair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#harvestInfo">HarvestInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#keyPairViewModel">KeyPairViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transaction-objects">Transaction objects</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AppendixA.html#importanceTransferTransaction">ImportanceTransferTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionCreationTransaction">MosaicDefinitionCreationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicSupplyChangeTransaction">MosaicSupplyChangeTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigAggregateModificationTransaction">MultisigAggregateModificationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigCosignatoryModification">MultisigCosignatoryModification</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigSignatureTransaction">MultisigSignatureTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigTransaction">MultisigTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#provisionNamespaceTransaction">ProvisionNamespaceTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#transferTransaction">TransferTransaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaic">Mosaic</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionMetaDataPair">MosaicDefinitionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicProperties">MosaicProperties</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicLevy">MosaicLevy</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicId">MosaicId</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespace">Namespace</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespaceMetaDataPair">NamespaceMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAnnounceResult">NemAnnounceResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAsyncTimerVisitor">NemAsyncTimerVisitor</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemRequestResult">NemRequestResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nisNodeInfo">NisNodeInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#node">Node</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nodeCollection">NodeCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#privateKey">PrivateKey</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestAnnounce">RequestAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestPrepareAnnounce">RequestPrepareAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#timeSynchronizationResult">TimeSynchronizationResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaData">TransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaDataPair">TransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaData">UnconfirmedTransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaDataPair">UnconfirmedTransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#error-object">Error object</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixB.html#error-messages">Error messages</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="cell medium-auto off-canvas-content" data-off-canvas-content>
+        <div class="sections">
+          <section id="namespaces-and-mosaics" data-magellan-target="namespaces-and-mosaics">
+            <h1>Namespaces and Mosaics</h1>
+          </section>
+          <section id="namespaces" data-magellan-target="namespaces">
+            <h2>Namespaces</h2>
+            <p>
+              NEM supports the concept of namespaces which is the NEM analog of internet domain names. A namespace is an identification
+              string that consists of one or more parts that are concatenated by dots, for example 'makoto.metals.silver'. All
+              namespaces are unique and thus can only have one owner at a time. A namespace that has only one part is called a root
+              namespace, otherwise sub-namespace. Root namespaces can be rented by accounts for the duration of one year. One month
+              before the root namespace expires the rental contract can be renewed for another year. If a root namespace rental contract
+              is renewed, all sub-namespaces are valid for another year as well. If the root namespace is not renewed, it expires
+              together with all sub-namespaces. One month after a root namespace expires, another account is able to rent that root
+              namespace. The new owner does not inherit the sub-namespaces from the previous owner however. An account can only rent a
+              sub-namespace if it owns the corresponding root namespace.
+            </p>
+            <p>
+              Namespaces have certain restrictions with respected to the characters being allowed in the parts as well as the length
+              of a part. A root namespace may have a length of 16 characters while sub-namespaces may have a length of 64 characters.
+              Valid characters are:
+              <ul>
+                <li>a, b, c, ..., z, A, B, C, ..., Z, 0, 1, 2, ..., 9, _ , -</li>
+              </ul>
+              However a part is only allowed to begin with a letter from the alphabet, thus 'alice' is an allowed part for a root
+              namespace while '1alice' is not. Certain strings are reserved and thus not allowed as namespace parts. Among the
+              disallowed namespace parts are
+              <ul>
+                <li>nem, user, account, org, com, biz, net, edu, mil, gov and info.</li>
+              </ul>
+              This list is not final and can be extended in the future. Thus 'user.alice' or 'alice.user' are not allowed in the NEM
+              namespace system. The namespace may have up to 3 parts, thus 'makoto.metals.silver' is valid while
+              'makoto.metals.silver.coin' is not.
+            </p>
+            <p>
+              A namespace rental contract is done via a <em>Appendix A:</em> <a href="AppendixA.html#provisionNamespaceTransaction">
+              ProvisionNamespaceTransaction</a>. In addition to the usual transaction fee there is a rental fee. This fee is paid to
+              the so called rental fee sink which is a special account with address
+              <ul>
+                <li>NAMESPACEWH4MKFMBCVFERDPOOP4FK7MTBXDPZZA in the main net and</li>
+                <li>TAMESPACEWH4MKFMBCVFERDPOOP4FK7MTDJEYP35 in the test net.</li>
+              </ul>
+              The fee for renting a namespace for one year is
+              <ul>
+                <li>100 XEM for a root namespace and</li>
+                <li>10 XEM for a sub-namespace.</li>
+              </ul>
+            </p>
+            <p>The ownership of a namespace is needed in order to create mosaics.</p>
+          </section>
+          <section id="retrieving-root-namespaces" data-magellan-target="retrieving-root-namespaces">
+            <h3>Retrieving root namespaces</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/namespace/root/page</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Gets the root namespaces. The requests supports paging, i.e. retrieving the root namespaces in batches of a specified
+                size. The request returns an array of <a href="AppendixA.html#namespaceMetaDataPair">NamespaceMetaDataPair</a> objects.
+              </dd>
+              <dt>Parameter:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>id</td>
+                    <td>
+                      The topmost namespace database id up to which root namespaces are returned. The parameter is optional.
+                      If not supplied the most recent rented root namespaces are returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>pagesize</td>
+                    <td>
+                      The number of namespace objects to be returned for each request. The parameter is optional.
+                      The default value is 25, the minimum value is 5 and hte maximum value is 100.
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/namespace/root/page?id=26754&amp;pageSize=35">http://127.0.0.1:7890/namespace/roots?id=26754&amp;pageSize;=35</a></dd>
+              <dt>Example of returned JSON object:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "data":
+    [{
+        "meta":
+        {
+            "id": 26264
+        },
+        "namespace":
+        {
+            "fqn": "makoto.metal.coins",
+            "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+            "height": 13465
+        }
+    }, {
+        "meta":
+        {
+            "id": 25421
+        },
+        "namespace":
+        {
+            "fqn": "gimre.vouchers",
+            "owner": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+            "height": 12392
+        }
+    }]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>None.</dd>
+            </dl>
+          </section>
+          <section id="retrieving-a-specific-namespace" data-magellan-target="retrieving-a-specific-namespace">
+            <h3>Retrieving a specific namespace</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/namespace</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets the namespace with given id.</dd>
+              <dt>Parameter:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>namespace</td>
+                    <td>The namespace id.</td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/namespace?namespace=makoto.metal.coins">http://127.0.0.1:7890/namespace?namespace=makoto.metal.coins</a></dd>
+              <dt>Example of returned JSON object:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "fqn": "makoto.metal.coins",
+    "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+    "height": 13465
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                NIS returns an error if the namespace parameter is missing or invalid.
+                See <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for details about errors.
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaics" data-magellan-target="mosaics">
+            <h2>Mosaics</h2>
+            <p>
+              NEM mosaics are assets that expose additional properties and other features. Each mosaic has an underlying mosaic
+              definition. To be able to create a mosaic definition, an account must rent at least one root namespace which the mosaic
+              definition can then refer to. The basic data for a mosaic definition consists of
+              <ul>
+                <li>
+                  <b>mosaic id</b>: the mosaic id consists of two parts, a namespace id and a mosaic name. When representing the mosaic
+                  id as string the two parts are concatenated via a ':'.<br/>
+                  For example if the namespace id is 'makoto.metals.silver' and the mosaic name is 'coin' then the string representation
+                  would be 'makoto.metals.silver:coin'. Since mosaic ids should be unique, the mosaic name has to be unique within the
+                  namespace the mosaic definition refers to. The maximum length for a mosaic name is 32 characters. Valid characters are:
+                  <ul>
+                    <li>a, b, c, ..., z, 0, 1, 2, ..., 9, ', _ , -</li>
+                  </ul>
+                  But the first character must be a letter from the alphabet.
+                </li>
+                <li>
+                  <b>description</b>: Each definition needs a description of the mosaic. The description may not exceed a length of 512
+                  characters. There is no limitation for the characters used in the description.
+                </li>
+                <li>
+                  <b>properties</b>: The behavior of a mosaic can be customized by a set of properties. If no properties are supplied
+                  then default properties are applied. Supported properties are:
+                  <ol>
+                    <li>
+                      <b>initialSupply</b>: The creator can specify an initial supply of mosaics when creating the definition. The
+                      supply is given in entire units of the mosaic, <b>not</b> in smallest sub-units. The initial supply must be in
+                      the range of 0 and 9,000,000,000. The default value is "1000".
+                    </li>
+                    <li>
+                      <b>divisibility</b>: The divisibility determines up to what decimal place the mosaic can be divided into. Thus a
+                      divisibility of 3 means that a mosaic can be divided into smallest parts of 0.001 mosaics, i.e. milli mosaics is
+                      the smallest sub-unit. When transferring mosaics via a transfer transaction the quantity transferred is given in
+                      multiples of those smallest parts.<br/>
+                      The divisibility must be in the range of 0 and 6. The default value is "0".
+                    </li>
+                    <li>
+                      <b>supplyMutable</b>: The creator can choose between a definition that allows a mosaic supply change at a later
+                      point or an immutable supply. Allowed values for the property are "true" and "false". The default value is "false".
+                    </li>
+                    <li>
+                      <b>transferable</b>: The creator can choose if the mosaic definition should allow for transfers of the mosaic
+                      among accounts other than the creator. If the property 'transferable' is set to "false", only transfer
+                      transactions having the creator as sender or as recipient can transfer mosaics of that type. If set to "true" the
+                      mosaics can be transferred to and from arbitrary accounts. Allowed values for the property are thus "true" and
+                      "false". The default value is "true".
+                    </li>
+                  </ol>
+                </li>
+                <li>
+                  <b>levy</b>: The creator can demand that for each transfer of a mosaic of that type a special fee is collected from
+                  the sender and send to an account of his choice (thus the creator can specify his own account as recipient of this
+                  fee). The data for the levy is the following:
+                  <ol>
+                    <li><b>fee type:</b> There are two fee types supported, absolute fee and percentile fee:
+                      <ol>
+                        <li>absolute fee:</li>
+                        The fee is specified as absolute quantity and thus does not depend on the quantity that is transferred.
+                        <li>percentile fee:</li>
+                        The fee is specified as multiple of the percentile of the quantity that is transferred. The fee is thus
+                        linearly increasing with the transferred mosaic quantity.
+                      </ol>
+                    </li>
+                    <li><b>recipient:</b> The recipient of the levy. This can be any account.</li>
+                    <li>
+                      <b>mosaic id:</b> The id of the mosaic in which the fee has to be paid. Any existing mosaic id can be specified.
+                      If the creator wants the fee to be paid in XEM, then (s)he has to use the mosaic id 'nem * xem'.
+                    </li>
+                    <li><b>fee:</b> The fee quantity. The interpretation is dependent on the field 'fee type', see above.</li>
+                  </ol>
+                </li>
+              </ul>
+            </p>
+            <p>
+              A mosaic definition can be created via a <em>Appendix A:</em> <a href="AppendixA.html#mosaicDefinitionCreationTransaction">
+              MosaicDefinitionCreationTransaction</a>. In addition to the usual transaction fee there is a creation fee. This fee is
+              paid to the so called creation fee sink which is a special account with address
+              <ul>
+                <li>NBMOSAICOD4F54EE5CDMR23CCBGOAM2XSIUX6TRS in the main net and</li>
+                <li>TBMOSAICOD4F54EE5CDMR23CCBGOAM2XSJBR5OLC in the test net.</li>
+              </ul>
+              The fee for creating a mosaic definition is 10 XEM.
+            </p>
+            <p>
+              There is one predefined mosaic which represents the XEM coin. The data for this XEM mosaic is:
+              <ul>
+                <li>namespace: nem</li>
+                <li>name: xem</li>
+                <li>initial supply: 8,999,999,999</li>
+                <li>divisibility: 6</li>
+                <li>supply mutable: false</li>
+                <li>transferable: true</li>
+                <li>levy: none</li>
+              </ul>
+            </p>
+          </section>
+          <section id="retrieving-mosaic-definitions" data-magellan-target="retrieving-mosaic-definitions">
+            <h3>Retrieving mosaic definitions</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/namespace/mosaic/definition/page</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Gets the mosaic definitions for a given namespace. The request supports paging. The request return an array of
+                <a href="AppendixA.html#mosaicDefinitionMetaDataPair">MosaicDefinitionMetaDataPair</a> objects.
+              </dd>
+              <dt>Parameter:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>namespace</td>
+                    <td>The namespace id.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>
+                      The topmost mosaic definition database id up to which root mosaic definitions are returned. The parameter is
+                      optional. If not supplied the most recent mosaic definitiona are returned.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>pagesize</td>
+                    <td>
+                      The number of mosaic definition objects to be returned for each request. The parameter is optional.
+                      The default value is 25, the minimum value is 5 and hte maximum value is 100.
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/namespace/mosaic/definition/page?namespace=makoto.metal.coins">http://127.0.0.1:7890/namespace/mosaic/definition/page?namespace=makoto.metal.coins</a></dd>
+              <dt>Example of returned JSON object:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "data":
+    [{
+        "meta":
+        {
+            "id": 3541
+        },
+        "mosaic":
+        {
+            "creator": "10cfe522fe23c015b8ab24ef6a0c32c5de78eb55b2152ed07b6a092121187100",
+            "id":
+            {
+                "namespaceId": "makoto.metal.coins",
+                "name": "silver coin"
+            },
+            "description": "Real silver coins, pure silver",
+            "properties":
+            [{
+                 "name": "divisibility",
+                 "value": "0"
+            }, {
+                "name": "initialSupply",
+                "value": "1000"
+            }, {
+                "name": "supplyMutable",
+                "value": "false"
+            }, {
+                "name": "transferable",
+                "value": "true"
+            }]
+        }
+    }]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                NIS returns an error if the namespace parameter is missing or invalid. See
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for details about errors.
+              </dd>
+          </section>
+        </div>
+      </div>
+    </div>
+  
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

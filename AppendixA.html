@@ -1,0 +1,3032 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEM NIS API Documentation</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-open="offCanvasMenu"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell off-canvas position-left reveal-for-medium" id="offCanvasMenu" data-off-canvas>
+        <ul class="vertical menu" data-accordion-menu data-submenu-toggle="true" data-magellan>
+          <li class="menu-text"><img src="image/logo.png" alt="NEM Logo"></li>
+          <li class="tabs-title"><a href="index.html#introduction">Introduction</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="index.html#general-information">General Information</a></li>
+              <li class="tabs-title"><a href="index.html#installation">Installation</a></li>
+              <li class="tabs-title"><a href="index.html#requests">Requests</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequests.html#NIS-status-related-requests">NIS status related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequests.html#heart-beat-request">Heart beat request</a></li>
+              <li class="tabs-title"><a href="NISrequests.html#status-request">Status Request</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AccountRequests.html#account-related-requests">Account related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-data">Retrieving account data</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AccountRequests.html#generating-new-account-data">Generating new account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-data">Requesting the account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-original-account-data-for-a-delegate-account">Requesting the original account data for a delegate account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-status">Requesting the account status</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#transaction-data-with-decoded-messages">Transaction data with decoded messages</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-harvest-info-data-for-an-account">Requesting harvest info data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-importances-for-accounts">Retrieving account importances for accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-namespaces-that-an-account-owns">Retrieving namespaces that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaic-definitions-that-an-account-has-created">Retrieving mosaic definitions that an account has created</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaics-that-an-account-owns">Retrieving mosaics that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#locking-and-unlocking-accounts">Locking and unlocking accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-the-unlock-info">Retrieving the unlock info</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-historical-account-data">Retrieving historical account data</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-related-requests">Block chain related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-the-block-chain-status-information">Requesting the block chain status information</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-height">Block chain height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-score">Block chain score</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#last-block-of-the-block-chain-score">Last block of the block chain score</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-parts-of-the-block-chain">Requesting parts of the block chain</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-a-block-with-a-given-height">Getting a block with a given height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-part-of-a-chain">Getting part of a chain</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NodeRequests.html#node-related-requests">Node related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-information-about-a-node">Requesting information about a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#basic-node-information">Basic node information</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#extended-node-information">Extended node information</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#request-for-discovering-the-neighborhood-of-a-node">Request for discovering the neighborhood of a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#complete-neighborhood">Complete neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#reachable-neighborhood">Reachable neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#active-neighborhood">Active neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#maximum-chain-height-in-the-active-neighborhood">Maximum chain height in the active neighborhood</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-node-experiences">Requesting node experiences</a></li>
+              <li class="tabs-title"><a href="NodeRequests.html#booting-the-local-node">Booting the local node</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces-and-mosaics">Namespaces and Mosaics</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces">Namespaces</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-root-namespaces">Retrieving root namespaces</a></li>
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-a-specific-namespace">Retrieving a specific namespace</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NamespacesMosaics.html#mosaics">Mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-mosaic-definitions">Retrieving mosaic definitions</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-transactions">Initiating transactions</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transaction">Initiating a transaction</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transfer-transaction">Initiating a transfer transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-1-transfer-transactions">Version 1 transfer transactions</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-2-transfer-transactions">Version 2 transfer transactions</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#converting-an-account-to-a-multisig-account">Converting an account to a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-multisig-transaction">Initiating a multisig transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#cosigning-multisig-transaction">Cosigning multisig transaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#adding-and-removing-cosignatories">Adding and removing cosignatories</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#how-to-use-a-multisig-account">How to use a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#provisioning-a-namespace">Provisioning a namespace</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-mosaics">Creating mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-mosaic-definition">Creating a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#altering-a-mosaic-definition">Altering a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#changing-the-mosaic-supply">Changing the mosaic supply</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-signed-transaction">Creating a signed transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#gathering-data-for-the-signature">Gathering data for the signature</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#sending-the-data-to-NIS">Sending the data to NIS</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#transaction-fees">Transaction fees</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#requests-for-additional-information-from-NIS">Requests for additional information from NIS</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-the-network-time">Monitoring the network time</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-incoming-and-outgoing-calls">Monitoring incoming and outgoing calls</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-timers">Monitoring timers</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title is-active"><a href="AppendixA.html#appendix-A:-description-of-the-JSON-structures">Appendix A: Description of the JSON Structures</a>
+            <ul class="menu vertical nested is-active">
+              <li class="tabs-title"><a href="AppendixA.html#accountHistoricalDataViewModel">AccountHistoricalDataViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountImportanceViewModel">AccountImportanceViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountInfo">AccountInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaData">AccountMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaDataPair">AccountMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountPrivateKeyTransactionsPage">AccountPrivateKeyTransactionsPage</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#applicationMetaData">ApplicationMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#auditCollection">AuditCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#block">Block</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockChainScore">BlockChainScore</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockHeight">BlockHeight</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#bootNodeRequest">BootNodeRequest</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#communicationTimeStamps">CommunicationTimeStamps</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerBlockViewModel">ExplorerBlockViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerTransferViewModel">ExplorerTransferViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#extendedNodeExperiencePair">ExtendedNodeExperiencePair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#harvestInfo">HarvestInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#keyPairViewModel">KeyPairViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transaction-objects">Transaction objects</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AppendixA.html#importanceTransferTransaction">ImportanceTransferTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionCreationTransaction">MosaicDefinitionCreationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicSupplyChangeTransaction">MosaicSupplyChangeTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigAggregateModificationTransaction">MultisigAggregateModificationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigCosignatoryModification">MultisigCosignatoryModification</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigSignatureTransaction">MultisigSignatureTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigTransaction">MultisigTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#provisionNamespaceTransaction">ProvisionNamespaceTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#transferTransaction">TransferTransaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaic">Mosaic</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionMetaDataPair">MosaicDefinitionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicProperties">MosaicProperties</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicLevy">MosaicLevy</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicId">MosaicId</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespace">Namespace</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespaceMetaDataPair">NamespaceMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAnnounceResult">NemAnnounceResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAsyncTimerVisitor">NemAsyncTimerVisitor</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemRequestResult">NemRequestResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nisNodeInfo">NisNodeInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#node">Node</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nodeCollection">NodeCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#privateKey">PrivateKey</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestAnnounce">RequestAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestPrepareAnnounce">RequestPrepareAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#timeSynchronizationResult">TimeSynchronizationResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaData">TransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaDataPair">TransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaData">UnconfirmedTransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaDataPair">UnconfirmedTransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#error-object">Error object</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixB.html#error-messages">Error messages</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="cell medium-auto off-canvas-content" data-off-canvas-content>
+        <div class="sections">
+          <section id="appendix-A:-description-of-the-JSON-structures" data-magellan-target="appendix-A:-description-of-the-JSON-structures">
+            <h1>Appendix A: Description of the JSON Structures</h1>
+          </section>
+          <section id="accountHistoricalDataViewModel" data-magellan-target="accountHistoricalDataViewModel">
+            <h2>AccountHistoricalDataViewModel</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Nodes can support a feature for retrieving historical data of accounts. If a node supports this feature, it will
+                return an array of AccountHistoricalDataViewModel objects.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "height": 8976,
+    "address": "NALICELGU3IVY4DPJKHYLSSVYFFWYS5QPLYEZDJJ",
+    "balance": 80670000000,
+    "vestedBalance": 13949175142,
+    "unvestedBalance": 66720824858,
+    "importance": 0.00008166760846617221,
+    "pageRank": 0.0006944567083595363
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>height</td>
+                    <td>The height for which the data is valid.</td>
+                  </tr>
+                  <tr>
+                    <td>address</td>
+                    <td>The address of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>balance</td>
+                    <td>The balance of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>vestedBalance</td>
+                    <td>The vested part of the balance.</td>
+                  </tr>
+                  <tr>
+                    <td>unvestedBalance</td>
+                    <td>The unvested part of the balance.</td>
+                  </tr>
+                  <tr>
+                    <td>importance</td>
+                    <td>The importance of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>pageRank</td>
+                    <td>The page rank part of the importance.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="accountImportanceViewModel" data-magellan-target="accountImportanceViewModel">
+            <h2>AccountImportanceViewModel</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Each account is assigned an importance in the NEM network. The ability of an account to generate new blocks is
+                proportional to its importance. The importance is a number between 0 and 1.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "address": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS"
+    "importance":
+    {
+        "isSet": 1,
+        "score": 0.0011561555164258449,
+        "ev": 0.004367936531009263,
+        "height": 38413
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>address</td>
+                    <td>The address of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>importance</td>
+                    <td>Substructure that describes the importance of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>isSet</td>
+                    <td>
+                      Indicates if the fields "score", "ev" and "height" are available.isSet can have the values 0 or 1. In case
+                      isSet is 0 the fields are not available.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>score</td>
+                    <td>The importance of the account. The importance ranges between 0 and 1.</td>
+                  </tr>
+                  <tr>
+                    <td>ev</td>
+                    <td>The page rank portion of the importance. The page rank ranges between 0 and 1.</td>
+                  </tr>
+                  <tr>
+                    <td>height</td>
+                    <td>The height at which the importance calculation was performed.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>   
+          <section id="accountInfo" data-magellan-target="accountInfo">
+            <h2>AccountInfo</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>The account structure describes basic information for an account.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "address": "TALICELCD3XPH4FFI5STGGNSNSWPOTG5E4DS2TOS",
+    "balance": 124446551689680,
+    "vestedBalance": 1041345514976241,
+    "importance": 0.010263666447108395,
+    "publicKey": "a11a1a6c17a24252e674d151713cdf51991ad101751e4af02a20c61b59f1fe1a",
+    "label": null,
+    "harvestedBlocks": 645
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>address</td>
+                    <td>The address of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>balance</td>
+                    <td>The balance of the account in micro NEM.</td>
+                  </tr>
+                  <tr>
+                    <td>vestedBalance</td>
+                    <td>The vested part of the balance of the account in micro NEM.</td>
+                  </tr>
+                  <tr>
+                    <td>importance</td>
+                    <td>The importance of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>publicKey</td>
+                    <td>The public key of the account.</td>
+                  </tr>
+                  <tr>
+                    <td>label</td>
+                    <td>The label of the account (not used, always null).</td>
+                  </tr>
+                  <tr>
+                    <td>harvestedBlocks</td>
+                    <td>The number blocks that the account already harvested.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="accountMetaData" data-magellan-target="accountMetaData">
+            <h2>AccountMetaData</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The account meta data describes additional information for the account. See
+                <a href="AccountRequests.html#account-related-requests">Account related requests</a> for details.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "status": "LOCKED",
+    "remoteStatus": "ACTIVE",
+    "cosignatoryOf" :
+    [
+        &lt;AccountInfo&gt;,
+        &lt;AccountInfo&gt;
+    ],
+    "cosignatories" :
+    [
+        &lt;AccountInfo&gt;,
+        &lt;AccountInfo&gt;
+    ]
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>status</td>
+                    <td>
+                      The harvesting status of a queried account. The harvesting status can be one of the following values:
+                      <ul>
+                        "UNKNOWN": The harvesting status of the account is not known.<br/>
+                        "LOCKED": The account is not harvesting.<br/>
+                        "UNLOCKED": The account is harvesting.<br/>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>remoteStatus</td>
+                    <td>
+                      The status of remote harvesting of a queried account. The remote harvesting status can be one of the following
+                      values:
+                      <ul>
+                        "REMOTE": The account is a remote account and therefore remoteStatus is not applicable for it.<br/>
+                        "ACTIVATING": The account has activated remote harvesting but it is not yet active.<br/>
+                        "ACTIVE": The account has activated remote harvesting and remote harvesting is active.<br/>
+                        "DEACTIVATING": The account has deactivated remote harvesting but remote harvesting is still active.<br/>
+                        "INACTIVE": The account has inactive remote harvesting, or it has deactivated remote harvesting and deactivation is operational.
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>cosignatoryOf</td>
+                    <td>JSON array of AccountInfo structures. The account is cosignatory for each of the accounts in the array.</td>
+                  </tr>
+                  <tr>
+                    <td>cosignatories</td>
+                    <td>JSON array of AccountInfo structures. The array holds all accounts that are a cosignatory for this account.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="accountMetaDataPair" data-magellan-target="accountMetaDataPair">
+            <h2>AccountMetaDataPair</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>The account meta data pair includes durable information for an account and additional information about its state.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "account":
+        &lt;AccountInfo&gt;,
+    "meta":
+        &lt;AccountMetaData&gt;
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>account</td>
+                    <td>Contains the account object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;AccountInfo&gt;</td>
+                    <td>The account object as described in <a href="AppendixA.html#accountInfo">AccountInfo</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>meta</td>
+                    <td>Contains the account meta data object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;AccountMetaData&gt;</td>
+                    <td>The account meta data object as described in <a href="AppendixA.html#accountMetaData">AccountMetaData</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>    
+          <section id="accountPrivateKeyTransactionsPage" data-magellan-target="accountPrivateKeyTransactionsPage">
+            <h2>AccountPrivateKeyTransactionsPage</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The account private key transactions page contains data that NIS needs to retrieve a set of transactions from the
+                database. The data includes the private key of the account for which transactions are retrieved. Use requests that
+                use this structure only when NIS is running locally.<br/>
+                The fields "hash" and "id" are optional.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "value": "68e4f79f886927de698df4f857de2aada41ccca6617e56bb0d61623b35b08cc0",
+    "hash": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039",
+    "id": "12345"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>value</td>
+                    <td>The private key as hexadecimal string.</td>
+                  </tr>
+                  <tr>
+                    <td>hash</td>
+                    <td>The optional hash value.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The optional transaction id.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="applicationMetaData" data-magellan-target="applicationMetaData">
+            <h2>ApplicationMetaData</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>The application meta data object supplies additional information about the application running on a node.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "currentTime": 9189086,
+    "application": "NEM Infrastructure Server",
+    "startTime": 9060202,
+    "version": "0.4.30-BETA",
+    "signer": "CN=NEM Community,OU=Development Team,O=NEM,L=Internet,ST=web,C=WD"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>currentTime</td>
+                    <td>The current network time, i.e. the number of seconds that have elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>application</td>
+                    <td>The name of the application running on the node.</td>
+                  </tr>
+                  <tr>
+                    <td>startTime</td>
+                    <td>The network time when the application was started.</td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The application version.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The signer of the certificate used by the application.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="auditCollection" data-magellan-target="auditCollection">
+            <h2>AuditCollection</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                An audit collection consists of two arrays, containing information about incoming requests from other nodes. The first
+                array contains information about outstanding (i.e. not yet processed requests) and the second array contains
+                information about the most recent requests. The audit collection is for debug purposes.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "outstanding":
+    [{
+        "path": "/chain/score",
+        "start-time": 9020618,
+        "host": "86.124.91.183",
+        "elapsed-time": 5,
+        "id": 797725
+    }],
+    "most-recent":
+    [{
+        "path": "/push/transaction",
+        "start-time": 9020621,
+        "host": "hachi.nem.ninja",
+        "elapsed-time": 2,
+        id": 797750
+    }]
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>path</td>
+                    <td>The relative URL path.</td>
+                  </tr>
+                  <tr>
+                    <td>start-time</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>host</td>
+                    <td>The host which initiated the request.</td>
+                  </tr>
+                  <tr>
+                    <td>elapsed-time</td>
+                    <td>The time in seconds that has elapsed since the request was received.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The unique id of the request.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="block" data-magellan-target="block">
+            <h2>Block</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A block is the structure that contains the transaction information. A block can contain up to 120 transactions. Blocks
+                are generated and signed by accounts and are the instrument by which information is spread in the network.
+              </dd>
+              <dt>JSON structure by example (main network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9022656,
+    "signature": "256ebcfa4f92e2881963359c51095a390b9f4d1b3fee75ae19f96d5e6bcf055abbcaae3e55bcc17e6214924e4e6a9ebbe77357236b1a235e944950b851bda804",
+    "prevBlockHash":
+    {
+        "data": "0a3d6bea020bb1a503364c37d57392342f368389bb23b05799c54d536d94749b"
+    },
+    "type": 1,
+    "transactions":
+    [
+        Transaction1, Transaction2, …, Transaction11
+    ],
+    "version": 1744830465,
+    "signer": "6c66ea288522990db7a0a63c9c20f532cdcb68dc3c9544fb20f7322c92ceadbb",
+    "height": 39324
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>Signature</td>
+                    <td>
+                      The signature of the block. The signature was generated by the signer and can be used to validate that the block
+                      data was not modified by a node.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>prevBlockHash</td>
+                    <td>The sha3-256 hash of the last block as hex-string.</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>
+                      The block type. There are currently two block types used:
+                      <ul>-1: Only the nemesis block has this type.<br/>1: Regular block type.</ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>transactions</td>
+                    <td>
+                      The array of transaction structures. See <em>Appendix A:</em>
+                      <a href="AppendixA.html#transaction-objects">Transaction Objects</a> for more details about this structure.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>
+                      The block version. The following versions are supported.
+                      <ul>
+                        <li>0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version</li>
+                        <li>0x60 &lt;&lt; 24 + 1 (1610612737 as 4 byte integer): the mijin network version</li>
+                        <li>0x98 &lt;&lt; 24 + 1 (-1744830463 as 4 byte integer): the test network version</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the harvester of the block as hexadecimal number.</td>
+                  </tr>
+                  <tr>
+                    <td>height</td>
+                    <td>The height of the block. Each block has a unique height. Subsequent blocks differ in height by 1.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="blockChainScore" data-magellan-target="blockChainScore">
+              <h2>BlockChainScore</h2>
+              <dt>Description:</dt>
+              <p>The block chain score is a measure how
+                          good the block chain is. The higher the score, the better the block chain is.</p>
+              
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary"><pre>{
+                     "score": "17a3077c927d9a7e"
+              }</pre>
+              <dt>Description of the fields:</dt><table><tr><td>score</td><td>The score is an integer greater or equal to zero. It is submitted in hexadecimal format.</td></tr></table>
+          </section>
+          <section id="blockHeight" data-magellan-target="blockHeight">
+            <h2>BlockHeight</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The block height describes the position of the block within the block chain. The first block of the chain has height
+                one. Each subsequent block has a height which is one higher than the previous block.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "height": 2649
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>height</td>
+                    <td>The height is an integer greater than zero.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="bootNodeRequest" data-magellan-target="bootNodeRequest">
+            <h2>BootNodeRequest</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The BootNodeRequest JSNON object is used to transfer the relevant data for booting a local node to NIS. With the boot
+                data NIS can create the local node object and connect to the network.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "metaData":
+    {
+        "application":"NIS"
+    },
+    "endpoint":
+    {
+        "protocol":"http",
+        "port":7890,
+        "host":"localhost"
+    },
+    "identity":
+    {
+        "private-key":"a6cbd01d04edecfaef51df9486c111abb6299c764a00206eb1d01f4587491b3f",
+        "name":"Alice"
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>metaData</td>
+                    <td>Denotes the beginning of the metaData substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>application</td>
+                    <td>The application name.</td>
+                  </tr>
+                  <tr>
+                    <td>endpoint</td>
+                    <td>Denotes the beginning of the endpoint substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>protocol</td>
+                    <td>The protocol to use (only HTTP supported as for now).</td>
+                  </tr>
+                  <tr>
+                    <td>port</td>
+                    <td>The port to use.</td>
+                  </tr>
+                  <tr>
+                    <td>host</td>
+                    <td>The IP address to use.</td>
+                  </tr>
+                  <tr>
+                    <td>identity</td>
+                    <td>Denotes the fof the identity substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>private-key</td>
+                    <td>The private key used for creating the identity.</td>
+                  </tr>
+                  <tr>
+                    <td>name</td>
+                    <td>The name of the node (can be anything).</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="communicationTimeStamps" data-magellan-target="communicationTimeStamps">
+            <h2>CommunicationTimeStamps</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Communication timestamps contain information about the network time of a remote NIS. NEM uses a time synchronization
+                mechanism to synchronize time across the network. Each node maintains a network time which is the time of the computer
+                clock plus an offset which compensates for the deviation from the computer clocks of other nodes.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "sendTimeStamp": 9145477789,
+    "receiveTimeStamp": 9145477789
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>sendTimeStamp</td>
+                    <td>The network time at the moment the reply was sent.</td>
+                  </tr>
+                  <tr>
+                    <td>receiveTimeStamp</td>
+                    <td>The network time at the moment the request was received.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="explorerBlockViewModel" data-magellan-target="explorerBlockViewModel">
+            <h2>ExplorerBlockViewModel</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The following structure is used by the NEM block chain explorer for convenience reason. The data is similar but
+                not identical to that of a <a href="AppendixA.html#block">Block</a>.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "data":
+    [{
+        "txes":
+        [
+            &lt;ExplorerTransferViewModel&gt;,
+            &amp;vellip;
+            &lt;ExplorerTransferViewModel&gt;
+        ],
+        "block": &lt;Block&gt; ,
+        "hash":"a6f62c62eedf4fafe6991e5cf31eae440963577c919f4eae86b4db8f8e572dce",
+        "difficulty": 23456345897
+    }, …]
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>txes</td>
+                    <td>Array containing the transactions of the block.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;ExplorerTransferViewModel&gt;</td>
+                    <td>The ExplorerBlockViewModel object as described in <a href="AppendixA.html#explorerTransferViewModel">ExplorerTransferViewModel</a></td>
+                  </tr>
+                  <tr>
+                    <td>block</td>
+                    <td>Entry containing a JSON block object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;Block&gt;</td>
+                    <td>The Block object as described in <em>Appendix A:</em> <a href="AppendixA.html#block">Block</a></td>
+                  </tr>
+                  <tr>
+                    <td>hash</td>
+                    <td>The hash of the block as hexadecimal string.</td>
+                  </tr>
+                  <tr>
+                    <td>difficulty</td>
+                    <td>The block difficulty.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="explorerTransferViewModel" data-magellan-target="explorerTransferViewModel">
+            <h2>ExplorerTransferViewModel</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The following structure is used by the NEM block chain explorer for convenience reason. The data is similar but
+                not identical to that of a <a href="AppendixA.html#transaction-objects">Transaction</a> structure.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "tx": &lt;Transaction&gt;,
+    "hash": "5cba4614e52af19417fb53c4bdf442a57b9f558aee17ece530a5220da55cf47d",
+    "innerHash": "ae3b107f1216e1ccf12b6f3c3c555bc1d95311747338ce66f539ea2c18c0aa57"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>tx</td>
+                    <td>Entry containing the JSON Transaction object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;Transaction&gt;</td>
+                    <td>
+                      The Transaction object. Depending on the type of the transaction the structure will look different. See
+                      <em>Appendix A:</em> <a href="AppendixA.html#transaction-objects">Transaction objects</a> for the different transaction types.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>hash</td>
+                    <td>The hash of the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>innerHash</td>
+                    <td>The hash of the inner transaction. This entry is only available for multisig transactions</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="extendedNodeExperiencePair" data-magellan-target="extendedNodeExperiencePair">
+            <h2>ExtendedNodeExperiencePair</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                When exchanging data with other nodes the result of the communication is divided into three different outcomes:
+                success, neutral and failure. In the cases of success and failure the result is saved to be able to judge the quality
+                of a node. This has influence on the probability that a certain node is selected as partner.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary"><pre>{ 
+                     "node": 
+                     { 
+                            &lt;Node&gt; 
+                     }, 
+                     "syncs": 822, 
+                     "experience": 
+                     { 
+                            "s": 357, 
+                            "f": 0 
+                     } 
+              }</pre>
+              <dt>Description of the fields:</dt><table><tr><td>node</td><td>Denotes the beginning of the of the Node substructure.</td></tr><tr><td>&lt;Node&gt;</td><td>The remote Node object as described in <a href="AppendixA.html#node">Node</a>.</td></tr><tr><td>syncs</td><td>The number of synchronization attempts the node had with the remote node.</td></tr><tr><td>experience</td><td>Denotes the beginning of the of the NodeExperience substructure.</td></tr><tr><td>s</td><td>The number of successful communications with the remote node.</td></tr><tr><td>f</td><td>The number of failed communications with the remote node.</td></tr></table>
+           </section>
+           <section id="harvestInfo" data-magellan-target="harvestInfo">
+             <h2>HarvestInfo</h2>
+              <dt>Description:</dt>
+              <p>A HarvestInfo object contains
+                          information about a block that an account harvested.</p>
+              
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary"><pre>{ 
+                     "timeStamp": 8963798, 
+                     "id": 254378,
+                     "difficulty": 46534789865332,
+                     "totalFee": 2041299054, 
+                     "height": 38453 
+              }</pre>
+              <dt>Description of the fields:</dt><table><tr><td>timeStamp</td><td>The number of seconds elapsed since the creation of the nemesis block.</td></tr><tr><td>id</td><td>The database id for the harvested block.</td></tr><tr><td>difficulty</td><td>The block difficulty. The initial difficulty was set to 100000000000000. The block difficulty is always between one tenth and ten
+                          times the initial difficulty.
+                      </td></tr><tr><td>totalFee</td><td>The total fee collected by harvesting the block.</td></tr><tr><td>height</td><td>The height of the harvested block.</td></tr></table>
+          </section>
+          <section id="keyPairViewModel" data-magellan-target="keyPairViewModel">
+            <h2>KeyPairViewModel</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A KeyPairViewModel object contains information about a new account. Information includes the private key, the public
+                key and the address.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "privateKey": "0962c6505d02123c40e858ff8ef21e2b7b5466be12c4770e3bf557aae828390f",
+    "publicKey": "c2e19751291d01140e62ece9ee3923120766c6302e1099b04014fe1009bc89d3",
+    "address": "NCKMNCU3STBWBR7E3XD2LR7WSIXF5IVJIDBHBZQT"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>privateKey</td>
+                    <td>The private key of the account as hexadeciaml string.</td>
+                  </tr>
+                  <tr>
+                    <td>publicKey</td>
+                    <td>The public key of the account as hexadeciaml string.</td>
+                  </tr>
+                  <tr>
+                    <td>address</td>
+                    <td>The address of the account.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="transaction-objects" data-magellan-target="transaction-objects">
+            <h2>Transaction objects</h2>
+          </section>
+          <section id="importanceTransferTransaction" data-magellan-target="importanceTransferTransaction">
+            <h3>ImportanceTransferTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                NIS has the ability to transfer the importance of one account to another account for harvesting. The account receiving
+                the importance is called the remote account. Importance transfer transactions are part of the secure harvesting feature
+                of NEM. Once an importance transaction has been included in a block it needs 6 hours to become active.
+              </dd>
+              <dt>JSON structure by example (main network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 150000,
+    "mode": 1,
+    "remoteAccount": "cc6c9485d15b992501e57fe3799487e99de272f79c5442de94eeb998b45e0144",
+    "type": 2049,
+    "deadline": 9154726,
+    "version": 1744830465,
+    "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature (missing if part of a multisig transaction).</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>
+                      The fee for the transaction. The higher the fee, the higher the priority of the transaction. Transactions with
+                      high priority get included in a block before transactions with lower priority.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>mode</td>
+                    <td>
+                      The mode. Possible values are:
+                      <ol>
+                        <li>Activate remote harvesting.</li>
+                        <li>Deactivate remote harvesting.</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>remoteAccount</td>
+                    <td>The public key of the receiving account as hexadecimal string.</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaicDefinitionCreationTransaction" data-magellan-target="mosaicDefinitionCreationTransaction">
+            <h3>MosaicDefinitionCreationTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Before a mosaic can be created or transferred, a corresponding definition of the mosaic has to be created and published
+                to the network. This is done via a mosaic definition creation transaction.
+              </dd>
+              <dt>JSON structure by example (test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 150000,
+    "type": 16385,
+    "deadline": 9154726,
+    "version": -1744830463,
+    "signer": "cbda3edb771d42801a5c6ce0725f9374efade19a8933d6ac22ccfa50c777d0f9",
+    "creationFee": 10000000,
+    "creationFeeSink": "53e140b5947f104cabc2d6fe8baedbc30ef9a0609c717d9613de593ec2a266d3",
+    "mosaicDefinition":
+    {
+        "creator": "cbda3edb771d42801a5c6ce0725f9374efade19a8933d6ac22ccfa50c777d0f9",
+        "description": "precious vouchers",
+        "id":
+        {
+            "namespaceId": "alice.vouchers",
+            "name": "Alice's gift vouchers"
+        },
+        "properties":
+        [{
+            "name": "divisibility",
+            "value": "3"
+        }, {
+            "name": "initialSupply",
+            "value": "1000"
+        }, {
+            "name": "supplyMutable",
+            "value": "false"
+        }, {
+            "name": "transferable",
+            "value": "true"
+        }],
+        "levy":
+        {
+            "type": 1,
+            "recipient": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+            "mosaicId":
+            {
+                "namespaceId": "nem",
+                "name": "xem"
+            },
+            "fee": 1000
+        }
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature (missing if part of a multisig transaction).</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>
+                      The fee for the transaction. The higher the fee, the higher the priority of the transaction. Transactions with
+                      high priority get included in a block before transactions with lower priority.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>creationFee</td>
+                    <td>The fee for the creation of the mosaic.</td>
+                  </tr>
+                  <tr>
+                    <td>creationFeeSink</td>
+                    <td>The public key of the account to which the creation fee is tranferred.</td>
+                  </tr>
+                  <tr>
+                    <td>mosaicDefinition</td>
+                    <td>The actual mosaic definition. See <a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a> for details.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaicSupplyChangeTransaction" data-magellan-target="mosaicSupplyChangeTransaction">
+            <h3>MosaicSupplyChangeTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                In case a mosaic definition has the property 'supplyMutable' set to true, the creator of the mosaic definition
+                can change the supply, i.e. increase or decrease the supply.
+              </dd>
+              <dt>JSON structure by example (test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 150000,
+    "type": 16386,
+    "deadline": 9154726,
+    "version": -1744830463,
+    "signer": "d99e88c90da71a4b0d848454e59e296c9ef7a8f018f3eaa3a198dc460b6621a4",
+    "supplyType": 1,
+    "delta": 123,
+    "mosaicId":
+    {
+        "namespaceId": "alice.vouchers",
+        "name": "gift vouchers"
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature (missing if part of a multisig transaction).</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>
+                      The fee for the transaction. The higher the fee, the higher the priority of the transaction. Transactions with
+                      high priority get included in a block before transactions with lower priority.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>supplyType</td>
+                    <td>
+                      The supply type. Supported supply types are:
+                      <ol>
+                        <li>Increase in supply.</li>
+                        <li>Decrease in supply.</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>delta</td>
+                    <td>The supply change in units for the mosaic.</td>
+                  </tr>
+                  <tr>
+                    <td>mosaicId</td>
+                    <td>The mosaic id. See <a href="AppendixA.html#mosaicId">MosaicId</a> for details.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="multisigAggregateModificationTransaction" data-magellan-target="multisigAggregateModificationTransaction">
+            <h3>MultisigAggregateModificationTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Multisig aggregate modification transactions are part of the NEM's multisig account system. A multisig aggregate
+                modification transaction holds an array of multisig cosignatory modifications and a single multisig minimum
+                cosignatories modification inside the transaction. A multisig aggregate modification transaction can be wrapped by a
+                multisig transaction. Aggregate modification transactions that use the minCosignatories field need to have version
+                0x68000002 (decimal 1744830466) for mainnet, 0x98000002 (decimal -1744830462) for testnet and 0x60000002
+                (decimal 1610612738) for mijin network.
+              </dd>
+              <dt>JSON structure by example (main network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 500000,
+    "type": 257,
+    "deadline": 9154726,
+    "version": 1744830466,
+    "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a",
+    "modifications":
+    [
+        &lt;MultisigCosignatoryModification&gt;,
+        &lt;MultisigCosignatoryModification&gt;
+    ],
+    "minCosignatories" :
+    {
+      "relativeChange" : 2
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature (missing if part of a multisig transaction).</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>
+                      The fee for the transaction. The higher the fee, the higher the priority of the transaction. Transactions with
+                      high priority get included in a block before transactions with lower priority.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>modifications</td>
+                    <td>The JSON array of multisig modifications.</td>
+                  </tr>
+                  <tr>
+                    <td>minCosignatories</td>
+                    <td>JSON object that holds the minimum cosignatories modification.</td>
+                  </tr>
+                  <tr>
+                    <td>relativeChange</td>
+                    <td>Value indicating the relative change of the minimum cosignatories.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="multisigCosignatoryModification" data-magellan-target="multisigCosignatoryModification">
+            <h3>MultisigCosignatoryModification</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Multisig cosignatory modifications are part of the NEM's multisig account system. With a multisig cosignatory
+                modification a cosignatory is added to or deleted from a multisig account. Multisig cosignatory modifications are part
+                of a multisig aggregate modification transactions, see details there.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "modificationType": 1,
+    "cosignatoryAccount": "213150649f51d6e9113316cbec5bf752ef7968c1e823a28f19821e91daf848be"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>modificationType</td>
+                    <td>
+                      The type of modification. Possible values are:
+                      <ol>
+                        <li>Add a new cosignatory.</li>
+                        <li>Delete an existing cosignatory.</li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>cosignatoryAccount</td>
+                    <td>The public key of the cosignatory account as hexadecimal string</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="multisigSignatureTransaction" data-magellan-target="multisigSignatureTransaction">
+            <h3>MultisigSignatureTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Multisig signature transactions are part of the NEM's multisig account system. Multisig signature transactions are
+                included in the corresponding multisig transaction and are the way a cosignatory of a multisig account can sign a
+                multisig transaction for that account.
+              </dd>
+              <dt>JSON structure by example (test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 150000,
+    "type": 257,
+    "deadline": 9154726,
+    "version": -1744830463,
+    "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a",
+    "otherHash":
+    {
+      "data": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039"
+    },
+    "otherAccount": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature.</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>The fee for the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>otherHash</td>
+                    <td>The hash of the inner transaction of the corresponding multisig transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>otherAccount</td>
+                    <td>The address of the corresponding multisig account.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="multisigTransaction" data-magellan-target="multisigTransaction">
+            <h3>MultisigTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Multisig transaction are the only way to make transaction from a multisig account to another account. A multisig
+                transaction carries another transaction inside (often referred to as "inner" transaction). The inner transaction can
+                be a transfer, an importance transfer or an aggregate modification transaction. A multisig transaction also has
+                multisig signature transactions from the cosignatories of the multisig account inside.
+              </dd>
+              <dt>JSON structure by example (test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 150000,
+    "type": 257,
+    "deadline": 9154726,
+    "version": -1744830463,
+    "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a",
+    "otherTrans": &lt;inner transaction&gt;,
+    "signatures":
+    [
+        &lt;MultisigSignatureTransaction&gt;,
+        &lt;MultisigSignatureTransaction&gt;
+    ]
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature.</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>The fee for the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td> The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>otherTrans</td>
+                    <td>
+                      The inner transaction. The inner transaction can be a transfer transaction, an importance transfer transaction
+                      or a multisig aggregate modification transaction. The inner transaction does not have a valid signature.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>signatures</td>
+                    <td>The JSON array of MulsigSignatureTransaction objects.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="provisionNamespaceTransaction" data-magellan-target="provisionNamespaceTransaction">
+            <h3>ProvisionNamespaceTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Accounts can rent a namespace for one year and after a year renew the contract. This is done via a ProvisionNamespaceTransaction.</dd>              
+              <dt>JSON structure by example (test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 150000,
+    "type": 8193,
+    "deadline": 9154726,
+    "version": -1744830463,
+    "signer": "d99e88c90da71a4b0d848454e59e296c9ef7a8f018f3eaa3a198dc460b6621a4",
+    "rentalFeeSink": "3e82e1c1e4a75adaa3cba8c101c3cd31d9817a2eb966eb3b511fb2ed45b8e262",
+    "rentalFee": 10000000,
+    "newPart": "voucher",
+    "parent": "alice"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature (missing if part of a multisig transaction).</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>
+                      The fee for the transaction. The higher the fee, the higher the priority of the transaction. Transactions with
+                      high priority get included in a block before transactions with lower priority.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it is
+                      deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>rentalFeeSink</td>
+                    <td>The public key of the account to which the rental fee is transferred.</td>
+                  </tr>
+                  <tr>
+                    <td>rentalFee</td>
+                    <td>The fee for renting the namespace.</td>
+                  </tr>
+                  <tr>
+                    <td>newPart</td>
+                    <td>The new part which is concatenated to the parent with a '.' as separator.</td>
+                  </tr>
+                  <tr>
+                    <td>parent</td>
+                    <td>The parent namespace. This can be null if the transaction rents a root namespace.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="transferTransaction" data-magellan-target="transferTransaction">
+            <h3>TransferTransaction</h3>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Transfer transactions contain data about transfers of XEM or mosaics to another account. There are two version of
+                transfer transactions, version 1 and version 2. Version 1 transfer transaction are only capable of transferring
+                XEM and a message while version 2 transfer transactions additionally can transfer a set of mosaics.
+              </dd>
+              <dt>JSON structure by example (v1 transfer transaction, test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "amount": 1000000000,
+    "signature": "651a19ccd09c1e0f8b25f6a0aac5825b0a20f158ca4e0d78f2abd904a3966b6e3599a47b9ff199a3a6e1152231116fa4639fec684a56909c22cbf6db66613901",
+    "fee": 50000,
+    "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA",
+    "type": 257,
+    "deadline": 9154726,
+    "message":
+    {
+        "payload": "74657374207472616e73616374696f6e",
+        "type": 1
+    },
+    "version": -1744830463,
+    "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+}
+</pre>
+              </dd>
+              <dt>JSON structure by example (v2 transfer transaction, test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "timeStamp": 9111526,
+    "amount": 123000000,
+    "signature": "fad7ea2b5df5f7846f45fd9983a75ad8d333af3660f4f0d355864420f4482605d675e89d97177385338b226097342b4222add52c5397423f9eaf6b01fe3ef70c",
+    "fee": 100000,
+    "recipient": "TBEH27FNRS43FNH3PXE4XN3H7HXA37H77APSZW46",
+    "type": 257,
+    "deadline": 9154726,
+    "message":
+    {
+        "payload": "74657374207472616e73616374696f6e",
+        "type": 1
+    },
+    "version": -1744830462,
+    "signer": "cb4ef3709d25ccd0c022b2d53e4ce31478ebc4bf177b1b54482afb8e55692521",
+    "mosaics":
+    [{
+        "mosaicId":
+        {
+            "namespaceId": "id0",
+            "name": "name0"
+        },
+        "quantity": 10
+    }, {
+        "mosaicId":
+        {
+            "namespaceId": "id1",
+            "name": "name1"
+        },
+        "quantity": 11
+    }]
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>amount</td>
+                    <td>The amount of micro NEM that is transferred from sender to recipient.</td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The transaction signature.</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>
+                      The fee for the transaction. The higher the fee, the higher the priority of the transaction. Transactions with
+                      high priority get included in a block before transactions with lower priority.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>recipient</td>
+                    <td>The address of the recipient.</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>The transaction type.</td>
+                  </tr>
+                  <tr>
+                    <td>deadline</td>
+                    <td>
+                      The deadline of the transaction. The deadline is given as the number of seconds elapsed since the creation of
+                      the nemesis block. If a transaction does not get included in a block before the deadline is reached, it
+                      is deleted.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>message</td>
+                    <td>
+                      Optionally a transaction can contain a message. In this case the transaction contains a message substructure.
+                      If not the field is null.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>payload</td>
+                    <td>Optional field in case the transaction contains a message. The payload is the actual (possibly encrypted) message data.</td>
+                  </tr>
+                  <tr>
+                    <td>type</td>
+                    <td>
+                      Optional field in case the transaction contains a message. The field holds the message type information.
+                      Possible message types are:
+                      <ul>
+                        <li>The message is not encrypted.</li>
+                        <li>The message is encrypted.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the structure.</td>
+                  </tr>
+                  <tr>
+                    <td>signer</td>
+                    <td>The public key of the account that created the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>mosaics</td>
+                    <td>The array of <a href="AppendixA.html#mosaic">Mosaic</a> objects.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaic" data-magellan-target="mosaic">
+            <h2>Mosaic</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>A mosaic describes an instance of a mosaic definition. Mosaics can be transferred by means of a transfer transaction.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "mosaicId":
+    {
+        "namespaceId": "alice.drinks",
+        "name": "orange juice"
+    },
+    "quantity": 123000
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>mosaicId</td>
+                    <td>The mosaic id. See <a href="AppendixA.html#mosaicId">MosaicId</a></td>
+                  </tr>
+                  <tr>
+                    <td>quantity</td>
+                    <td>
+                      The mosaic quantity. The quantity is always given in smallest units for the mosaic, i.e. if it has a divisibility
+                      of 3 the quantity is given in millis.
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+            </section>
+            <section id="mosaicDefinition" data-magellan-target="mosaicDefinition">
+              <h2>MosaicDefinition</h2>
+              <dl>
+                <dt>Description:</dt>
+                <dd>A mosaic definition describes an asset class. Some fields are mandatory while others are optional. The properties
+                  of a mosaic definition always have a default value and only need to be supplied if they differ from the default value.
+                </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "creator": "10cfe522fe23c015b8ab24ef6a0c32c5de78eb55b2152ed07b6a092121187100",
+    "id":
+    {
+        "namespaceId": "alice.drinks",
+        "name": "orange juice"
+    },
+    "description": "A healthy drink with lots of vitamins",
+    "properties":
+    [{
+        "name": "divisibility",
+        "value": "3"
+    }, {
+        "name": "initialSupply",
+        "value": "1000"
+    }, {
+        "name": "supplyMutable",
+        "value": "false"
+    }, {
+        "name": "transferable",
+        "value": "true"
+    }],
+    "levy":
+    {
+        "type": 1,
+        "recipient": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "mosaicId":
+        {
+            "namespaceId": "alice.drinks",
+            "name": "orange juice"
+        },
+        "fee": 1000
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>creator</td>
+                    <td>The public key of the mosaic definition creator.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The mosaic id. See <a href="AppendixA.html#mosaicId">MosaicId</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>description</td>
+                    <td>The mosaic description. The description may have a length of up to 512 characters and cannot be empty.</td>
+                  </tr>
+                  <tr>
+                  <td>properties</td>
+                    <td>
+                      The mosaic properties. The properties may be an empty array in which case default values for all properties
+                      are applied. See <a href="AppendixA.html#mosaicProperties">MosaicProperties</a> for further details.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>levy</td>
+                    <td>
+                      The optional levy for the mosaic. A creator can demand that each mosaic transfer induces an additional fee.
+                      See <a href="AppendixA.html#mosaicLevy">MosaicLevy</a> for further details.
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaicDefinitionMetaDataPair" data-magellan-target="mosaicDefinitionMetaDataPair">
+            <h2>MosaicDefinitionMetaDataPair</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>A mosaic definition consists of a database id and a mosaic definition object. The id is needed for requests that support paging.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "meta":
+    {
+        "id": 3541
+    }
+    "mosaic":
+    {
+        "creator": "10cfe522fe23c015b8ab24ef6a0c32c5de78eb55b2152ed07b6a092121187100",
+        "id":
+        {
+            "namespaceId": "alice.drinks",
+            "name": "orange juice"
+        },
+        "description": "A healthy drink with lots of vitamins",
+        "properties": [ ]
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>meta</td>
+                    <td>The label for the meta data object.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The id for the mosaic definition object.</td>
+                  </tr>
+                  <tr>
+                    <td>mosaic</td>
+                    <td>
+                      The label for the mosaic definition object. See <a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a> for a detailed
+                      description of the object.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>creator</td>
+                    <td>The public key of the mosaic definition creator.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The mosaic id. See <a href="AppendixA.html#mosaicId">MosaicId.</a></td>
+                  </tr>
+                  <tr>
+                    <td>description</td>
+                    <td>The mosaic description. The description may have a length of up to 512 characters and cannot be empty.</td>
+                  </tr>
+                  <tr>
+                    <td>properties</td>
+                    <td>The mosaic properties.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaicProperties" data-magellan-target="mosaicProperties">
+            <h2>MosaicProperties</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Each mosaic definition comes with a set of properties. Each property has a default value which will be applied in
+                case it was not specified. Future release may add additional properties to the set of available properties. The
+                available properties and their default values are:
+                <ul>
+                  <li>
+                    <b>divisibility:</b> defines the smallest sub-unit that a mosaic can be divided into. A divisibility of 0 means
+                    that only entire units can be transferred while a divisibility of 3 means the mosaic can be transferred in milli-units.
+                  </li>
+                  <li>
+                    <b>initialSupply:</b> defines how many units of the mosaic are initially created. These mosaics are credited to
+                    the creator of the mosaic. The initial supply has an upper limit of 9,000,000,000 units.
+                  </li>
+                  <li>
+                    <b>supplyMutable:</b> determines whether or not the supply can be changed by the creator at a later point using a
+                    <a href="AppendixA.html#mosaicSupplyChangeTransaction">MosaicSupplyChangeTransaction</a>. Possible values are
+                    "true" and "false", the former meaning the supply can be changed and the latter that the supply is fixed for all
+                    times.
+                  </li>
+                  <li>
+                    <b>transferable:</b> determines whether or not the a mosaic can be transferred to a user other than the creator.
+                    In certain scenarios it is not wanted that user are able to trade the mosaic (for example when the mosaic
+                    represents bonus points which the company does not want to be tranferable to other users). Possible values are
+                    "true" and "false", the former meaning the mosaic can be arbitrarily transferred among users and the latter
+                    meaning the mosaic can only be transferred to and from the creator.
+                  </li>
+                </ul>
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+[{
+    "name": "divisibility",
+    "value": "3"
+}, {
+    "name": "initialSupply",
+    "value": "1000"
+}, {
+    "name": "supplyMutable",
+    "value": "false"
+}, {
+    "name": "transferable",
+    "value": "true"
+}]
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>name</td>
+                    <td>The name of the mosaic property.</td>
+                  </tr>
+                  <tr>
+                    <td>value</td>
+                    <td>The name of the mosaic property.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaicLevy" data-magellan-target="mosaicLevy">
+            <h2>MosaicLevy</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A mosaic definition can optionally specify a levy for transferring those mosaics. This might be needed by legal
+                entities needing to collect some taxes for transfers.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "type": 1,
+    "recipient": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+    "mosaicId":
+    {
+        "namespaceId": "nem",
+        "name": "xem"
+    },
+    "fee": 1000
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>type</td>
+                    <td>
+                      The levy type. The following types are supported:
+                      <ol>
+                        <li>
+                          The levy is an absolute fee. The field 'fee' states how many sub-units of the specified mosaic will be
+                          transferred to the recipient.
+                        </li>
+                        <li>
+                          The levy is calculated from the transferred amount. The field 'fee' states how many percentiles of the
+                          transferred quantity will transferred to the recipient.
+                        </li>
+                      </ol>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>recipient</td>
+                    <td>The recipient of the levy.</td>
+                  </tr>
+                  <tr>
+                    <td>mosaicId</td>
+                    <td>The mosaic in which the levy is paid.</td>
+                  </tr>
+                  <tr>
+                    <td>fee</td>
+                    <td>The fee. The interpretation is dependent on the type of the levy</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="mosaicId" data-magellan-target="mosaicId">
+            <h2>MosaicId</h2>
+            <dl>
+              <dt>Description:</dt><p>A mosaic id uniquely identifies an underlying mosaic definition.</p>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "namespaceId": "alice.drinks",
+    "name": "orange juice"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>namespaceId</td>
+                    <td>The corresponding namespace id. See the description of the structure <a href="AppendixA.html#namespace">Namespace.</a> for details.</td>
+                  </tr>
+                  <tr>
+                    <td>name</td>
+                    <td>The name of the mosaic definition.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="namespace" data-magellan-target="namespace">
+            <h2>Namespace</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A namespace is the NEM version of a domain. You can rent a namespace for the duration of a year by paying a fee.
+                The naming of the parts of a namespace has certain restrictions, see the corresponding section on
+                <a href="NamespacesMosaics.html#namespaces">Namespaces</a>.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "fqn": "makoto.metal.coins",
+    "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+    "height": 13465
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>fqn</td>
+                    <td>The fully qualified name of the namespace, also named namespace id.</td>
+                  </tr>
+                  <tr>
+                    <td>owner</td>
+                    <td>The owner of the namespace.</td>
+                  </tr>
+                  <tr>
+                    <td>height</td>
+                    <td>The height at which the ownership begins.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="namespaceMetaDataPair" data-magellan-target="namespaceMetaDataPair">
+            <h2>NamespaceMetaDataPair</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>A namespace consists of a namespace object and a database id. the id is needed for requests that support paging.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "meta":
+    {
+        "id":26264,
+    },
+    "namespace":
+    {
+        "fqn": "makoto.metal.coins",
+        "owner": "TD3RXTHBLK6J3UD2BH2PXSOFLPWZOTR34WCG4HXH",
+        "height": 13465
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>meta</td>
+                    <td>The label for the meta data object.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The database id for the namespace object.</td>
+                  </tr>
+                  <tr>
+                    <td>namespace</td>
+                    <td>The label for the namespace object.</td>
+                  </tr>
+                  <tr>
+                    <td>fqn</td>
+                    <td>The fully qualified name of the namespace, also named namespace id.</td>
+                  </tr>
+                  <tr>
+                    <td>owner</td>
+                    <td>The owner of the namespace.</td>
+                  </tr>
+                  <tr>
+                    <td>height</td>
+                    <td>The height at which the ownership begins.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="nemAnnounceResult" data-magellan-target="nemAnnounceResult">
+            <h2>NemAnnounceResult</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The NemAnnounceResult extends the <a href="AppendixA.html#nemRequestResult">NemRequestResult</a> by supplying the additional fields
+                'transactionHash' and in case of a multisig transaction 'innerTransactionHash'.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "type": 4,
+    "code": 6,
+    "message": "status",
+    "transactionHash":
+    {
+        "data":"c1786437336da077cd572a27710c40c378610e8d33880bcb7bdb0a42e3d35586"
+    },
+    "innerTransactionHash":
+    {
+        "data": "44e4968e5aa35fe182d4def5958e23cf941c4bf809364afb4431ebbf6a18c039"
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>type</td>
+                    <td> See description of <a href="AppendixA.html#nemRequestResult">NemRequestResult</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>code</td>
+                    <td> See description of <a href="AppendixA.html#nemRequestResult">NemRequestResult</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>message</td>
+                    <td> See description of <a href="AppendixA.html#nemRequestResult">NemRequestResult</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>transactionHash</td>
+                    <td> The JSON hash object of the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>innerTransactionHash</td>
+                    <td> The JSON hash object of the inner transaction or null if the transaction is not a multisig transaction.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="nemAsyncTimerVisitor" data-magellan-target="nemAsyncTimerVisitor">
+            <h2>NemAsyncTimerVisitor</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                NIS uses timers to schedule periodic tasks. Those tasks are monitored and their result is memorized. The
+                NemAsyncTimeVisitor structure holds the information.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "last-delay-time": 3000, 
+    "executions": 1024, 
+    "failures": 0, 
+    "successes": 1024, 
+    "last-operation-start-time": 9317695, 
+    "is-executing": 0, 
+    "name": "FORAGING", 
+    "average-operation-time": 0, 
+    "last-operation-time": 0 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>last-delay-time</td>
+                    <td>The number of milliseconds since the last execution of the timer.</td>
+                  </tr>
+                  <tr>
+                    <td>executions</td>
+                    <td>The number of times the task was executed.</td>
+                  </tr>
+                  <tr>
+                    <td>failures</td>
+                    <td>The number times the task failed.</td>
+                  </tr>
+                  <tr>
+                    <td>successes</td>
+                    <td>The number times the task was successful.</td>
+                  </tr>
+                  <tr>
+                    <td>last-operation-start-time</td>
+                    <td>The time at which the task started last time.</td>
+                  </tr>
+                  <tr>
+                    <td>is-executing</td>
+                    <td>True if the task is executing, false otherwise.</td>
+                  </tr>
+                  <tr>
+                    <td>name</td>
+                    <td>The name of the task.</td>
+                  </tr>
+                  <tr>
+                    <td>average-operation-time</td>
+                    <td>The number of seconds the task needed on average.</td>
+                  </tr>
+                  <tr>
+                    <td>last-operation-time</td>
+                    </td>The number of seconds the task needed the last time.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="nemRequestResult" data-magellan-target="nemRequestResult">
+            <h2>NemRequestResult</h2>
+            <p>
+              Some requests such as announcing a new transaction return detailed information about the outcome of the request.
+              In those cases the result of the request is returned in a special JSON object called NemRequestResult. The structure
+              is typically used for requests that perform validation or return a status.
+            </p>
+            <dl>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+   "type": 4, 
+   "code": 6, 
+   "message": "status" 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>type</td>
+                    <td>
+                      The type is dependent on the request which was answered.<br/>The interpretation of the code field depends on the
+                      type. Currently the following types are supported:
+                      <ul>
+                        <li>1: The result is a validation result.</li>
+                        <li>2: The result is a heart beat result.</li>
+                        <li>4: The result indicates a status.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>code</td>
+                    <td>
+                      The meaning of the code is dependent on the type. For type 1 (validation result) only 0 and 1 mean there was no
+                      failure. For a complete list of validation results see <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix
+                      B: NIS Errors</a> The following codes are the most frequent ones occurring:
+                      <ol start=0>
+                        <li>
+                          Neutral result. A typical example would be that a node validates an incoming transaction and realizes that
+                          it already knows about the transaction. In this case it is neither a success (meaning the node has a new
+                          transaction) nor a failure (because the transaction itself is valid).
+                        </li>
+                        <li>Success result. A typical example would be that a node validates a new valid transaction.</li>
+                        <li>Unknown failure. The validation failed for unknown reasons.</li>
+                        <li>The entity that was validated has already past its deadline.</li>
+                        <li>The entity used a deadline which lies too far in the future.</li>
+                        <li>There was an account involved which had an insufficient balance to perform the operation.</li>
+                        <li>The message supplied with the transaction is too large.</li>
+                        <li>The hash of the entity which got validated is already in the database.</li>
+                        <li>The signature of the entity could not be validated.</li>
+                        <li>The entity used a timestamp that lies too far in the past.</li>
+                        <li>The entity used a timestamp that lies in the future which is not acceptable.</li>
+                        <li>The entity is unusable.</li>
+                        <li>The score of the remote block chain is inferior (although a superior score was promised).</li>
+                        <li>The remote block chain failed validation.</li>
+                        <li>There was a conflicting importance transfer detected.</li>
+                        <li>There were too many transaction in the supplied block.</li>
+                        <li>The block contains a transaction that was signed by the harvester.</li>
+                        <li>A previous importance transaction conflicts with a new transaction.</li>
+                        <li>An importance transfer activation was attempted while previous one is active.</li>
+                        <li>An importance transfer deactivation was attempted but is not active.</li>
+                      </ol>
+                      For type 2 the following codes are supported:
+                      <ol>
+                        <li>Successful heart beat detected.</li>
+                      <ol>
+                      For type 3 the following codes are supported:
+                      <ol start=0>
+                        <li>Unknown status.</li>
+                        <li>NIS is stopped.</li>
+                        <li>NIS is starting.</li>
+                        <li>NIS is running.</li>
+                        <li>NIS is booting the local node (implies NIS is running).</li>
+                        <li>The local node is booted (implies NIS is running).</li>
+                        <li>The local node is synchronized (implies NIS is running and the local node is booted).</li>
+                        <li>There is no remote node available (implies NIS is running and the local node is booted).</li>
+                        <li>NIS is currently loading the block chain.</li>
+                      </ol>
+                    </td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="nisNodeInfo" data-magellan-target="nisNodeInfo">
+            <h2>NisNodeInfo</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>The NisNodeInfo object provides detailed information about a node.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "node":
+    { 
+        &lt;Node&gt; 
+    }, 
+    "nisInfo":
+    { 
+        &lt;ApplicationMetaData&gt; 
+    } 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>node</td>
+                    <td>Denotes the beginning of the node substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;Node&gt;</td>
+                    <td>The Node object as described in <a href="AppendixA.html#node">Node</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>nisInfo</td>
+                    <td>Denotes the beginning of the application meta data substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;ApplicationMetaData&gt;</td>
+                    <td>The ApplicationMetaData object as described in <a href="AppendixA.html#applicationMetaData">ApplicationMetaData</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="node" data-magellan-target="node">
+            <h2>Node</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Nodes are the entities that perform communication in the network like sending and receiving data. A node has an
+                identity which is tied to an account through which the node can identify itself to the network. The communication is
+                done through the endpoint of the node. Additionally a node provides meta data information.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "metaData": 
+    {
+        "features": 1,
+        "networkId": 104,
+        "application": "NIS", 
+        "version": "0.4.30-BETA", 
+        "platform": "Oracle Corporation (1.8.0_05) on Windows 8.1" 
+    }, 
+    "endpoint": 
+    { 
+        "protocol": "http", 
+        "port": 7890, 
+        "host": "85.25.36.97" 
+    }, 
+    "identity": 
+    { 
+        "name": "Hi, I am Alice2", 
+        "public-key": "3302e7703ee9f364c25bbfebb9c12ac91fa9dcd69e09a5d4f3830d71505a2350" 
+    } 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>metaData</td>
+                    <td>Denotes the beginning of the meta data substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>features</td>
+                    <td>The number of features the nodes has.</td>
+                  </tr>
+                  <tr>
+                    <td>networkId</td>
+                    <td>
+                      The network id. The following network ids are supported:
+                      <ul>
+                        <li>104 (hex 0x68): The main network id.</li>
+                        <li>96 (hex 0x60): The mijin network id.</li>
+                        <li>152 (hex 0x98): The test network id.</li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>application</td>
+                    <td>The name of the application that is running the node.</td>
+                  </tr>
+                  <tr>
+                    <td>version</td>
+                    <td>The version of the application.</td>
+                  </tr>
+                  <tr>
+                    <td>platform</td>
+                    <td>The underlying platform (OS, java version).</td>
+                  </tr>
+                  <tr>
+                    <td>endpoint</td>
+                    <td>Denotes the beginning of the endpoint substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>protocol</td>
+                    <td>The protocol used for the communication (HTTP or HTTPS).</td>
+                  </tr>
+                  <tr>
+                    <td>port</td>
+                    <td>The port used for the communication.</td>
+                  </tr>
+                  <tr>
+                    <td>host</td>
+                    <td>The IP address of the endpoint.</td>
+                  </tr>
+                  <tr>
+                    <td>identity</td>
+                    <td>Denotes the beginning of the identity substructure.</td>
+                  </tr>
+                  <tr>
+                    <td>name</td>
+                    <td>The name of the node.</td>
+                  </tr>
+                  <tr>
+                    <td>public-key</td>
+                    <td>The public key used to identify the node.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="nodeCollection" data-magellan-target="nodeCollection">
+            <h2>NodeCollection</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>A NodeCollection object holds arrays of nodes with different statuses. The following statuses are supported:</dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>inactive</td>
+                    <td>A connection to the node cannot be established.</td>
+                  </tr>
+                  <tr>
+                    <td>active</td>
+                    <td>A connection can be established and the remote node responds in a timely manner.</td>
+                  </tr>
+                  <tr>
+                    <td>busy</td>
+                    <td>A connection can be established but the node cannot provide information within the timeout limits.</td>
+                  </tr>
+                  <tr>
+                    <td>failure</td>
+                    <td>A fatal error occurs when trying to establish a connection or the node couldn't authenticate itself correctly.</td>
+                  </tr>
+                  <tr>
+                    <td>data</td>
+                    <td>Generic status indicating the node collection just lists nodes without saying anything about the status of the node.</td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "inactive":
+    [
+        &lt;Node&gt;, 
+        &lt;Node&gt; 
+    ], 
+    "active":
+    [ 
+        &lt;Node&gt;, 
+        &lt;Node&gt; 
+    ], 
+    "busy":
+    [ 
+        &lt;Node&gt;, 
+        &lt;Node&gt; 
+    ], 
+    "failure":
+    [ 
+        &lt;Node&gt;, 
+        &lt;Node&gt; 
+    ], 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>inactive</td>
+                    <td>Denotes the beginning of the array of inactive nodes.</td>
+                  </tr>
+                  <tr>
+                    <td>active</td>
+                    <td>Denotes the beginning of the array of active nodes.</td>
+                  </tr>
+                  <tr>
+                    <td>busy</td>
+                    <td>Denotes the beginning of the array of busy nodes.</td>
+                  </tr>
+                  <tr>
+                    <td>failure</td>
+                    <td>Denotes the beginning of the array of failing nodes.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;Node&gt;</td>
+                    <td>The Node object as described in <a href="AppendixA.html#node">Node</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="privateKey" data-magellan-target="privateKey">
+            <h2>PrivateKey</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A private key is a key to an account. Anyone having the private key to an account can initiate any account related
+                action. <strong>Therefore a private key must be kept secret at all costs.</strong>
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "value": "68e4f79f886927de698df4f857de2aada41ccca6617e56bb0d61623b35b08cc0",
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table><tr><td>value</td><td>The 256 bit value of the private key as hexadecimal string.</td></tr></table>
+              </dd>
+            </dl>
+          </section>
+          <section id="requestAnnounce" data-magellan-target="requestAnnounce">
+            <h2>RequestAnnounce</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A RequestAnnounce object is used to transfer the transaction data and the signature to NIS in order to initiate and
+                broadcast a transaction.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "data": "010100000100000000000000200000002b76078fa709bbe6752222b215abc7ec0152ffe831fb4f9aed3e7749a425900a00093d0000000000000000002800000054444e46555946584f5353334e4e4c4f35465a5348535a49354c33374b4e5149454850554d584c54c0d45407000000000b00000001000000030000000c3215",
+    "signature": "db2473513c7f0ce9f8de6345f0fbe773dc687eb571123d08eab4d98f96849eaeb63fa8756fb6c59d9b9d0e551537c1cdad4a564747ff9291db4a88b65c97c10d"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>data</td>
+                    <td>
+                      The transaction data as string. The string is created by first creating the corresponding byte array (see
+                      <a href="InitiatingTransactions.html#creating-a-signed-transaction">Creating a signed transaction</a>)
+                      and then converting the byte array to a hexadecimal string.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>signature</td>
+                    <td>The signature for the transaction as hexadecimal string.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="requestPrepareAnnounce" data-magellan-target="requestPrepareAnnounce">
+            <h2>RequestPrepareAnnounce</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A RequestPrepareAnnounce object is used to transfer transaction data and a private key to NIS in order to initiate and
+                broadcast a transaction.
+              </dd>
+              <dt>JSON structure by example (test network):</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "transaction": 
+    { 
+        "timeStamp": 9111526, 
+        "amount": 1000000000, 
+        "fee": 50000,
+        "recipient": "TDGIMREMR5NSRFUOMPI5OOHLDATCABNPC5ID2SVA", 
+        "type": 257, 
+        "deadline": 9154726, 
+        "message": 
+        { 
+            "payload": "74657374207472616e73616374696f6e", 
+            "type": 1 
+        }, 
+        "version": -1744830463,
+        "signer": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a" 
+    }, 
+    "privateKey": "68e4f79f886927de698df4f857de2aada41ccca6617e56bb0d61623b35b08cc0"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>transaction</td>
+                    <td>
+                      Denotes the beginning of the transaction data part. The transaction data is described in <em>Appendix A:</em>
+                      <a href="AppendixA.html#transaction-objects">Transaction Objects</a>. The field 'signature is missing since the transaction is not signed at
+                      this point.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>privateKey</td>
+                    <td>The private key which NIS will use to sign the transaction.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="timeSynchronizationResult" data-magellan-target="timeSynchronizationResult">
+            <h2>TimeSynchronizationResult</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                A time synchronization result is the outcome of the network time synchronization of a node with other remote nodes.
+                To agree upon a common time nodes need to synchronize time every hour.
+              </dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "dateTime": "2014-11-16 20:47:06", 
+    "currentTimeOffset": 2786, 
+    "change": 36 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>dateTime</td>
+                    <td>The date and time when the synchronization was performed.</td>
+                  </tr>
+                  <tr>
+                    <td>currentTimeOffset</td>
+                    <td>The current offset to the local computer clock in milliseconds.</td>
+                  </tr>
+                  <tr>
+                    <td>change</td>
+                    <td>The change in milliseconds compared to the last synchronization.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="transactionMetaData" data-magellan-target="transactionMetaData">
+            <h2>TransactionMetaData</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Transactions meta data object contains additional information about the transaction.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "height": 40706,
+    "id": 2769,
+    "hash":
+    {
+        "data":"37c34ead4c3fe6af42d994135798262f785ba2d807c02ac3608bc10da12e5f87"
+    }
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>height</td>
+                    <td>The height of the block in which the transaction was included.</td>
+                  </tr>
+                  <tr>
+                    <td>id</td>
+                    <td>The id of the transaction.</td>
+                  </tr>
+                  <tr>
+                    <td>hash</td>
+                    <td>The transaction hash.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="transactionMetaDataPair" data-magellan-target="transactionMetaDataPair">
+            <h2>TransactionMetaDataPair</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Transactions meta data object contains additional information about the transaction.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "meta": &lt;TransactionMetaData&gt;, 
+     "transaction": &lt;Transaction&gt; 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>meta</td>
+                    <td>Contains the transaction meta data object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;TransactionMetaData&gt;</td>
+                    <td>The transaction meta data object as described in <a href="AppendixA.html#transactionMetaData">TransactionMetaData</a>.</td>
+                  </tr>
+                  <tr>
+                    <td>Transaction</td>
+                    <td>Contains the transaction object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;Transaction&gt;</td>
+                    <td>The transaction object as described in <a href="AppendixA.html#transaction-objects">Transaction</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="unconfirmedTransactionMetaData" data-magellan-target="unconfirmedTransactionMetaData">
+            <h2>UnconfirmedTransactionMetaData</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                The unconfirmed transaction meta data contains the hash of the inner transaction in case the transaction
+                is a multisig transaction. This data is need to initiate a multisig signature transaction.
+              </dd>    
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    data": "d7c9e33421e43bf4a5d6e21304c8096c599142755d581bd6e9037f41545a5873"
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>data</td>
+                    <td>The hash of the inner transaction or null if the transaction is not a multisig transaction.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="unconfirmedTransactionMetaDataPair" data-magellan-target="unconfirmedTransactionMetaDataPair">
+            <h2>UnconfirmedTransactionMetaDataPair</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Transactions meta data object contains additional information about the transaction.</dd>
+              <dt>JSON structure by example:</dt>
+              <dd class="callout secondary">
+                <pre>
+                {
+                    "meta": &lt;UnconfirmedTransactionMetaData&gt;,
+                    "transaction": &lt;Transaction&gt;
+                }
+                </pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>meta</td>
+                    <td> Contains the transaction meta data object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;UnconfirmedTransactionMetaData&gt;</td>
+                    <td> The transaction meta data object as described in UnconfirmedTransactionMetaData.</td>
+                  </tr>
+                  <tr>
+                    <td>transaction</td>
+                    <td> Contains the transaction object.</td>
+                  </tr>
+                  <tr>
+                    <td>&lt;Transaction&gt;</td>
+                    <td> The transaction object as described in Transaction.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+          <section id="error-object" data-magellan-target="error-object">
+            <h2>Error object</h2>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                If NIS encounters an error due to either invalid requests or internal problems, it returns a JSON error object. The
+                interpretation of the error object is dependant on the context. See
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for detailed information about possible
+                errors.
+              </dd>
+              <dt>JSON structure by example</dt>
+              <dd class="callout secondary">
+<pre>
+{ 
+    "timeStamp": 9108808, 
+    "error": "Bad Request", 
+    "message": "address must be valid", 
+    "status": 400 
+}
+</pre>
+              </dd>
+              <dt>Description of the fields:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>timeStamp</td>
+                    <td>The number of seconds elapsed since the creation of the nemesis block.</td>
+                  </tr>
+                  <tr>
+                    <td>error</td>
+                    <td>The general description of the error.</td>
+                  </tr>
+                  <tr>
+                    <td>message</td>
+                    <td>The detailed error message.</td>
+                  </tr>
+                  <tr>
+                    <td>Status</td>
+                    <td>The HTTP status.</td>
+                  </tr>
+                </table>
+              </dd>
+            </dl>
+          </section>
+        </div>                     
+      </div>
+    </div>
+            
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

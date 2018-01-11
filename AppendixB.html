@@ -1,0 +1,394 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEM NIS API Documentation</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-open="offCanvasMenu"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell off-canvas position-left reveal-for-medium" id="offCanvasMenu" data-off-canvas>
+        <ul class="vertical menu" data-accordion-menu data-submenu-toggle="true" data-magellan>
+          <li class="menu-text"><img src="image/logo.png" alt="NEM Logo"></li>
+          <li class="tabs-title"><a href="index.html#introduction">Introduction</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="index.html#general-information">General Information</a></li>
+              <li class="tabs-title"><a href="index.html#installation">Installation</a></li>
+              <li class="tabs-title"><a href="index.html#requests">Requests</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequests.html#NIS-status-related-requests">NIS status related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequests.html#heart-beat-request">Heart beat request</a></li>
+              <li class="tabs-title"><a href="NISrequests.html#status-request">Status Request</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AccountRequests.html#account-related-requests">Account related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-data">Retrieving account data</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AccountRequests.html#generating-new-account-data">Generating new account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-data">Requesting the account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-original-account-data-for-a-delegate-account">Requesting the original account data for a delegate account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-status">Requesting the account status</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#transaction-data-with-decoded-messages">Transaction data with decoded messages</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-harvest-info-data-for-an-account">Requesting harvest info data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-importances-for-accounts">Retrieving account importances for accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-namespaces-that-an-account-owns">Retrieving namespaces that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaic-definitions-that-an-account-has-created">Retrieving mosaic definitions that an account has created</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaics-that-an-account-owns">Retrieving mosaics that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#locking-and-unlocking-accounts">Locking and unlocking accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-the-unlock-info">Retrieving the unlock info</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-historical-account-data">Retrieving historical account data</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-related-requests">Block chain related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-the-block-chain-status-information">Requesting the block chain status information</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-height">Block chain height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-score">Block chain score</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#last-block-of-the-block-chain-score">Last block of the block chain score</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-parts-of-the-block-chain">Requesting parts of the block chain</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-a-block-with-a-given-height">Getting a block with a given height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-part-of-a-chain">Getting part of a chain</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NodeRequests.html#node-related-requests">Node related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-information-about-a-node">Requesting information about a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#basic-node-information">Basic node information</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#extended-node-information">Extended node information</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#request-for-discovering-the-neighborhood-of-a-node">Request for discovering the neighborhood of a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#complete-neighborhood">Complete neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#reachable-neighborhood">Reachable neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#active-neighborhood">Active neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#maximum-chain-height-in-the-active-neighborhood">Maximum chain height in the active neighborhood</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-node-experiences">Requesting node experiences</a></li>
+              <li class="tabs-title"><a href="NodeRequests.html#booting-the-local-node">Booting the local node</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces-and-mosaics">Namespaces and Mosaics</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces">Namespaces</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-root-namespaces">Retrieving root namespaces</a></li>
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-a-specific-namespace">Retrieving a specific namespace</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NamespacesMosaics.html#mosaics">Mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-mosaic-definitions">Retrieving mosaic definitions</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-transactions">Initiating transactions</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transaction">Initiating a transaction</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transfer-transaction">Initiating a transfer transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-1-transfer-transactions">Version 1 transfer transactions</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-2-transfer-transactions">Version 2 transfer transactions</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#converting-an-account-to-a-multisig-account">Converting an account to a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-multisig-transaction">Initiating a multisig transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#cosigning-multisig-transaction">Cosigning multisig transaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#adding-and-removing-cosignatories">Adding and removing cosignatories</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#how-to-use-a-multisig-account">How to use a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#provisioning-a-namespace">Provisioning a namespace</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-mosaics">Creating mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-mosaic-definition">Creating a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#altering-a-mosaic-definition">Altering a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#changing-the-mosaic-supply">Changing the mosaic supply</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-signed-transaction">Creating a signed transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#gathering-data-for-the-signature">Gathering data for the signature</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#sending-the-data-to-NIS">Sending the data to NIS</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#transaction-fees">Transaction fees</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#requests-for-additional-information-from-NIS">Requests for additional information from NIS</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-the-network-time">Monitoring the network time</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-incoming-and-outgoing-calls">Monitoring incoming and outgoing calls</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-timers">Monitoring timers</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixA.html#appendix-A:-description-of-the-JSON-structures">Appendix A: Description of the JSON Structures</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixA.html#accountHistoricalDataViewModel">AccountHistoricalDataViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountImportanceViewModel">AccountImportanceViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountInfo">AccountInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaData">AccountMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaDataPair">AccountMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountPrivateKeyTransactionsPage">AccountPrivateKeyTransactionsPage</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#applicationMetaData">ApplicationMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#auditCollection">AuditCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#block">Block</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockChainScore">BlockChainScore</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockHeight">BlockHeight</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#bootNodeRequest">BootNodeRequest</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#communicationTimeStamps">CommunicationTimeStamps</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerBlockViewModel">ExplorerBlockViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerTransferViewModel">ExplorerTransferViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#extendedNodeExperiencePair">ExtendedNodeExperiencePair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#harvestInfo">HarvestInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#keyPairViewModel">KeyPairViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transaction-objects">Transaction objects</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AppendixA.html#importanceTransferTransaction">ImportanceTransferTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionCreationTransaction">MosaicDefinitionCreationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicSupplyChangeTransaction">MosaicSupplyChangeTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigAggregateModificationTransaction">MultisigAggregateModificationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigCosignatoryModification">MultisigCosignatoryModification</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigSignatureTransaction">MultisigSignatureTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigTransaction">MultisigTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#provisionNamespaceTransaction">ProvisionNamespaceTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#transferTransaction">TransferTransaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaic">Mosaic</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionMetaDataPair">MosaicDefinitionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicProperties">MosaicProperties</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicLevy">MosaicLevy</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicId">MosaicId</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespace">Namespace</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespaceMetaDataPair">NamespaceMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAnnounceResult">NemAnnounceResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAsyncTimerVisitor">NemAsyncTimerVisitor</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemRequestResult">NemRequestResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nisNodeInfo">NisNodeInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#node">Node</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nodeCollection">NodeCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#privateKey">PrivateKey</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestAnnounce">RequestAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestPrepareAnnounce">RequestPrepareAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#timeSynchronizationResult">TimeSynchronizationResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaData">TransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaDataPair">TransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaData">UnconfirmedTransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaDataPair">UnconfirmedTransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#error-object">Error object</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title is-active"><a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a>
+            <ul class="menu vertical nested is-active">
+              <li class="tabs-title"><a href="AppendixB.html#error-messages">Error messages</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="cell medium-auto off-canvas-content" data-off-canvas-content>
+        <div class="sections">
+          <section id="appendix-B:-NIS-errors" data-magellan-target="appendix-B:-NIS-errors">
+            <h1>Appendix B: NIS Errors</h1>
+            <p class="lead">
+              In case NIS encounters an error while processing a request it returns a JSON error object whose structure is
+              described in <em>Appendix A:</em> <a href="AppendixA.html#error-object">Error object</a>. This chapter describes the errors
+              messages that can be returned from NIS.
+            </p>
+          </section>
+          <section id="error-messages" data-magellan-target="error-messages">
+            <h2>Error messages</h2>
+            <dl>
+              <dt>Request method 'GET' not supported</dt>
+              <dd>The request was performed as GET request but was expected to be a POST request.</dd>
+              <dt>address must be valid:</dt>
+              <dd>
+                At least one address supplied in the request was invalid. Addresses are validated before processing a request.
+                If validation fails, an error containing this message is returned.
+              </dd>
+              <dt>FAILURE_SERVER_LIMIT:</dt>
+              <dd>The number of accounts that are allowed to harvest on NIS was exceeded.</dd>
+              <dt>JSON Object was expected:</dt>
+              <dd>A parameter is missing in the request.</dd>
+              <dt>FAILURE_UNKNOWN_ACCOUNT:</dt>
+              <dd>The account specified in the request is not known.</dd>
+              <dt>block not found in the db</dt>
+              <dd>The block that was requested could not be found in the database.</dd>
+              <dt>height must be positive</dt>
+              <dd>The block height supplied in a request was zero or negative. Block height must always be greater than zero.</dd>
+              <dt>network has not been booted yet</dt>
+              <dd>
+                Most requests need the node that should answer the request to be already booted. If node is not booted yet, this
+                error message will be returned.
+              </dd>
+              <dt>network boot was already attempted</dt>
+              <dd>It was attempted to boot an already booted node. Nodes can only be booted once.</dd>
+              <dt>remote 123.45.67.89 attempted to call local /node/boot</dt>
+              <dd>It was attempted to boot a remote node. Only local node can be booted.</dd>
+              <dt>FAILURE_PAST_DEADLINE</dt>
+              <dd>The deadline for the entity has already expired. The deadline must always lie in the future.</dd>
+              <dt>FAILURE_FUTURE_DEADLINE</dt>
+              <dd>The deadline lies too far in the future. Deadlines are only allowed to lie up to 24 hours in the future.</dd>
+              <dt>FAILURE_INSUFFICIENT_BALANCE</dt>
+              <dd>The account does not have enough funds.</dd>
+              <dt>FAILURE_MESSAGE_TOO_LARGE</dt>
+              <dd>The message for the transaction exceeds the limit of 512 bytes.</dd>
+              <dt>FAILURE_HASH_EXISTS</dt>
+              <dd>The hash of the entity already exists either in the cache or in the database.</dd>
+              <dt>FAILURE_SIGNATURE_NOT_VERIFIABLE</dt>
+              <dd>The signature of the entity failed upon verification.</dd>
+              <dt>FAILURE_TIMESTAMP_TOO_FAR_IN_PAST</dt>
+              <dd>The timestamp of the entity lies to far in the past.</dd>
+              <dt>FAILURE_TIMESTAMP_TOO_FAR_IN_FUTURE</dt>
+              <dd>The timestamp of the entity lies too far in the future.</dd>
+              <dt>FAILURE_INELIGIBLE_BLOCK_SIGNER</dt>
+              <dd>
+                Validation failed because the block had an ineligible signer. This usually occurs when remote harvesting is in
+                the process of being activated or deactivated.
+              </dd>
+              <dt>FAILURE_ENTITY_UNUSABLE_OUT_OF_SYNC</dt>
+              <dd>
+                The entity cannot be processed because the remote node is out of synchronization with the local node. This happens
+                frequently when a node is not fully synchronized and receives a new block with much larger height than its own
+                chain.
+              </dd>
+              <dt>FAILURE_INSUFFICIENT_FEE</dt>
+              <dd>The supplied transaction has an insufficient fee.</dd>
+              <dt>FAILURE_NEMESIS_ACCOUNT_TRANSACTION_AFTER_NEMESIS_BLOCK</dt>
+              <dd>The supplied transaction has the nemesis account as sender and cannot be included in a normal block.</dd>
+              <dt>FAILURE_TRANSACTION_CACHE_TOO_FULL</dt>
+              <dd>
+                The transaction was rejected because the transaction cache is too full. This happens when an account tries to send
+                too many transactions in a short time. To improve the chance that the transaction gets accepted you can try to raise
+                the transaction fee.
+              </dd>
+              <dt>FAILURE_WRONG_NETWORK</dt>
+              <dd>Entity was rejected because it has the wrong network specified.</dd>
+              <dt>FAILURE_CANNOT_HARVEST_FROM_BLOCKED_ACCOUNT</dt>
+              <dd>Block was rejected because it was harvested by a blocked account (typically a reserved NEM fund).</dd>
+              <dt>FAILURE_DESTINATION_ACCOUNT_HAS_NONZERO_BALANCE</dt>
+              <dd>The importance cannot be transferred to an account with nonzero balance.</dd>
+              <dt>FAILURE_IMPORTANCE_TRANSFER_IN_PROGRESS</dt>
+              <dd>The transaction is conflicting because there is already a transfer of importance in progress.</dd>
+              <dt>FAILURE_IMPORTANCE_TRANSFER_NEEDS_TO_BE_DEACTIVATED</dt>
+              <dd>The transaction is conflicting because the importance was already transferred.</dd>
+              <dt>FAILURE_IMPORTANCE_TRANSFER_IS_NOT_ACTIVE</dt>
+              <dd>The transaction is conflicting because no importance has been transferred yet.</dd>
+              <dt>FAILURE_TRANSACTION_NOT_ALLOWED_FOR_REMOTE</dt>
+              <dd>Validation failed because transaction is using remote account in an improper way.</dd>
+              <dt>FAILURE_MULTISIG_NOT_A_COSIGNER</dt>
+              <dd>
+                The multisig transaction was rejected because the signer of the transaction is not a cosignatory of the sender
+                account of the inner transaction.
+              </dd>
+              <dt>FAILURE_MULTISIG_INVALID_COSIGNERS</dt>
+              <dd>Validation failed because the cosignatories attached to a multisig transaction were invalid.</dd>
+              <dt>FAILURE_MULTISIG_NO_MATCHING_MULTISIG</dt>
+              <dd>The signature transaction was rejected because the corresponding multisig transaction was not found.</dd>
+              <dt>FAILURE_TRANSACTION_NOT_ALLOWED_FOR_MULTISIG</dt>
+              <dd>
+                The transaction was rejected because the signer is a multisig account. Multisig accounts are not allowed to initiate
+                any transaction (only cosignatories are allowed to do so).
+              </dd>
+              <dt>FAILURE_MULTISIG_ALREADY_A_COSIGNER</dt>
+              <dd>The transaction was rejected because it tried to add a cosignatory to a multisig account which already has this cosignatory.</dd>
+              <dt>FAILURE_MULTISIG_MODIFICATION_MULTIPLE_DELETES</dt>
+              <dd>The transaction was rejected because it tried to remove multiple cosignatories at once. It is only allowed to remove one cosignatory at a time.</dd>
+              <dt>FAILURE_MULTISIG_MODIFICATION_REDUNDANT_MODIFICATIONS</dt>
+              <dd>
+                The transaction was rejected because it tried to do redundant modifications. This can happen if a transaction tries
+                to add the same cosignatory two time.
+              </dd>
+              <dt>FAILURE_CONFLICTING_MULTISIG_MODIFICATION</dt>
+              <dd>
+                The transaction was rejected because it contained conflicting modifications to a multisig account. This can for
+                instance happen if a transaction tries to add and then delete the same cosignatory.
+              </dd>
+              <dt>FAILURE_TOO_MANY_MULTISIG_COSIGNERS</dt>
+              <dd>
+                The transaction was rejected because it contains too many cosignatories. The maximum number of cosignatories allowed
+                for a multisig account is 32.
+              </dd>
+              <dt>FAILURE_MULTISIG_ACCOUNT_CANNOT_BE_COSIGNER</dt>
+              <dd>Validation failed because a multisig modification would result in a multisig account being a cosigner.</dd>
+              <dt>FAILURE_MULTISIG_MIN_COSIGNATORIES_OUT_OF_RANGE</dt>
+              <dd>Validation failed because the minimum number of cosignatories is negative or larger than the number of cosignatories.</dd>
+              <dt>FAILURE_NAMESPACE_UNKNOWN</dt>
+              <dd>Validation failed because the namespace is unknown.</dd>
+              <dt>FAILURE_NAMESPACE_ALREADY_EXISTS</dt>
+              <dd>Validation failed because the namespace already exists.</dd>
+              <dt>FAILURE_NAMESPACE_EXPIRED</dt>
+              <dd>Validation failed because the namespace has expired.</dd>
+              <dt>FAILURE_NAMESPACE_OWNER_CONFLICT</dt>
+              <dd>Validation failed because the transaction signer is not the owner of the namespace.</dd>
+              <dt>FAILURE_NAMESPACE_INVALID_NAME</dt>
+              <dd>Validation failed because the name for the namespace is invalid.</dd>
+              <dt>FAILURE_NAMESPACE_INVALID_RENTAL_FEE_SINK</dt>
+              <dd>Validation failed because the specified namespace rental fee sink is invalid.</dd>
+              <dt>FAILURE_NAMESPACE_INVALID_RENTAL_FEE</dt>
+              <dd>Validation failed because the specified rental fee is invalid.</dd>
+              <dt>FAILURE_NAMESPACE_PROVISION_TOO_EARLY</dt>
+              <dd>Validation failed because the provision was done too early.</dd>
+              <dt>FAILURE_NAMESPACE_NOT_CLAIMABLE</dt>
+              <dd>Validation failed because the namespace contains a reserved part and is not claimable.</dd>
+              <dt>FAILURE_MOSAIC_UNKNOWN</dt>
+              <dd>Validation failed because the mosaic is unknown.</dd>
+              <dt>FAILURE_MOSAIC_MODIFICATION_NOT_ALLOWED</dt>
+              <dd>Validation failed because the modification of the existing mosaic is not allowed.</dd>
+              <dt>FAILURE_MOSAIC_CREATOR_CONFLICT</dt>
+              <dd>Validation failed because the transaction signer is not the creator of the mosaic.</dd>
+              <dt>FAILURE_MOSAIC_SUPPLY_IMMUTABLE</dt>
+              <dd>Validation failed because the mosaic supply is immutable.</dd>
+              <dt>FAILURE_MOSAIC_MAX_SUPPLY_EXCEEDED</dt>
+              <dd>Validation failed because the maximum overall mosaic supply is exceeded.</dd>
+              <dt>FAILURE_MOSAIC_SUPPLY_NEGATIVE</dt>
+              <dd>Validation failed because the resulting mosaic supply would be negative.</dd>
+              <dt>FAILURE_MOSAIC_NOT_TRANSFERABLE</dt>
+              <dd>Validation failed because the mosaic is not transferable.</dd>
+              <dt>FAILURE_MOSAIC_DIVISIBILITY_VIOLATED</dt>
+              <dd>Validation failed because the divisibility of the mosaic is violated.</dd>
+              <dt>FAILURE_CONFLICTING_MOSAIC_CREATION</dt>
+              <dd>Validation failed because conflicting mosaic creation is present.</dd>
+              <dt>FAILURE_MOSAIC_INVALID_CREATION_FEE_SINK</dt>
+              <dd>Validation failed because the mosaic creation fee sink is invalid.</dd>
+              <dt>FAILURE_MOSAIC_INVALID_CREATION_FEE</dt>
+              <dd>Validation failed because the specified creation fee is invalid.</dd>
+              <dt>FAILURE_TOO_MANY_MOSAIC_TRANSFERS</dt>
+              <dd>Validation failed because a transfer transaction had too many attached mosaic transfers.</dd>
+            </dl>
+          </section>                     
+        </div>
+      </div>
+    </div>
+  
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
