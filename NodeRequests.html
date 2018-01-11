@@ -1,0 +1,743 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEM NIS API Documentation</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-open="offCanvasMenu"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell off-canvas position-left reveal-for-medium" id="offCanvasMenu" data-off-canvas>
+        <ul class="vertical menu" data-accordion-menu data-submenu-toggle="true" data-magellan>
+          <li class="menu-text"><img src="image/logo.png" alt="NEM Logo"></li>
+          <li class="tabs-title"><a href="index.html#introduction">Introduction</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="index.html#general-information">General Information</a></li>
+              <li class="tabs-title"><a href="index.html#installation">Installation</a></li>
+              <li class="tabs-title"><a href="index.html#requests">Requests</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequests.html#NIS-status-related-requests">NIS status related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequests.html#heart-beat-request">Heart beat request</a></li>
+              <li class="tabs-title"><a href="NISrequests.html#status-request">Status Request</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AccountRequests.html#account-related-requests">Account related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-data">Retrieving account data</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AccountRequests.html#generating-new-account-data">Generating new account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-data">Requesting the account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-original-account-data-for-a-delegate-account">Requesting the original account data for a delegate account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-status">Requesting the account status</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#transaction-data-with-decoded-messages">Transaction data with decoded messages</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-harvest-info-data-for-an-account">Requesting harvest info data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-importances-for-accounts">Retrieving account importances for accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-namespaces-that-an-account-owns">Retrieving namespaces that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaic-definitions-that-an-account-has-created">Retrieving mosaic definitions that an account has created</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaics-that-an-account-owns">Retrieving mosaics that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#locking-and-unlocking-accounts">Locking and unlocking accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-the-unlock-info">Retrieving the unlock info</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-historical-account-data">Retrieving historical account data</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-related-requests">Block chain related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-the-block-chain-status-information">Requesting the block chain status information</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-height">Block chain height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-score">Block chain score</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#last-block-of-the-block-chain-score">Last block of the block chain score</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-parts-of-the-block-chain">Requesting parts of the block chain</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-a-block-with-a-given-height">Getting a block with a given height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-part-of-a-chain">Getting part of a chain</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title is-active"><a href="NodeRequests.html#node-related-requests">Node related requests</a>
+            <ul class="menu vertical nested is-active">
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-information-about-a-node">Requesting information about a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#basic-node-information">Basic node information</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#extended-node-information">Extended node information</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#request-for-discovering-the-neighborhood-of-a-node">Request for discovering the neighborhood of a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#complete-neighborhood">Complete neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#reachable-neighborhood">Reachable neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#active-neighborhood">Active neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#maximum-chain-height-in-the-active-neighborhood">Maximum chain height in the active neighborhood</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-node-experiences">Requesting node experiences</a></li>
+              <li class="tabs-title"><a href="NodeRequests.html#booting-the-local-node">Booting the local node</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces-and-mosaics">Namespaces and Mosaics</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces">Namespaces</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-root-namespaces">Retrieving root namespaces</a></li>
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-a-specific-namespace">Retrieving a specific namespace</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NamespacesMosaics.html#mosaics">Mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-mosaic-definitions">Retrieving mosaic definitions</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-transactions">Initiating transactions</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transaction">Initiating a transaction</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transfer-transaction">Initiating a transfer transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-1-transfer-transactions">Version 1 transfer transactions</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-2-transfer-transactions">Version 2 transfer transactions</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#converting-an-account-to-a-multisig-account">Converting an account to a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-multisig-transaction">Initiating a multisig transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#cosigning-multisig-transaction">Cosigning multisig transaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#adding-and-removing-cosignatories">Adding and removing cosignatories</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#how-to-use-a-multisig-account">How to use a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#provisioning-a-namespace">Provisioning a namespace</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-mosaics">Creating mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-mosaic-definition">Creating a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#altering-a-mosaic-definition">Altering a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#changing-the-mosaic-supply">Changing the mosaic supply</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-signed-transaction">Creating a signed transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#gathering-data-for-the-signature">Gathering data for the signature</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#sending-the-data-to-NIS">Sending the data to NIS</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#transaction-fees">Transaction fees</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#requests-for-additional-information-from-NIS">Requests for additional information from NIS</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-the-network-time">Monitoring the network time</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-incoming-and-outgoing-calls">Monitoring incoming and outgoing calls</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-timers">Monitoring timers</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixA.html#appendix-A:-description-of-the-JSON-structures">Appendix A: Description of the JSON Structures</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixA.html#accountHistoricalDataViewModel">AccountHistoricalDataViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountImportanceViewModel">AccountImportanceViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountInfo">AccountInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaData">AccountMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaDataPair">AccountMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountPrivateKeyTransactionsPage">AccountPrivateKeyTransactionsPage</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#applicationMetaData">ApplicationMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#auditCollection">AuditCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#block">Block</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockChainScore">BlockChainScore</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockHeight">BlockHeight</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#bootNodeRequest">BootNodeRequest</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#communicationTimeStamps">CommunicationTimeStamps</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerBlockViewModel">ExplorerBlockViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerTransferViewModel">ExplorerTransferViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#extendedNodeExperiencePair">ExtendedNodeExperiencePair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#harvestInfo">HarvestInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#keyPairViewModel">KeyPairViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transaction-objects">Transaction objects</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AppendixA.html#importanceTransferTransaction">ImportanceTransferTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionCreationTransaction">MosaicDefinitionCreationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicSupplyChangeTransaction">MosaicSupplyChangeTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigAggregateModificationTransaction">MultisigAggregateModificationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigCosignatoryModification">MultisigCosignatoryModification</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigSignatureTransaction">MultisigSignatureTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigTransaction">MultisigTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#provisionNamespaceTransaction">ProvisionNamespaceTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#transferTransaction">TransferTransaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaic">Mosaic</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionMetaDataPair">MosaicDefinitionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicProperties">MosaicProperties</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicLevy">MosaicLevy</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicId">MosaicId</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespace">Namespace</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespaceMetaDataPair">NamespaceMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAnnounceResult">NemAnnounceResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAsyncTimerVisitor">NemAsyncTimerVisitor</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemRequestResult">NemRequestResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nisNodeInfo">NisNodeInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#node">Node</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nodeCollection">NodeCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#privateKey">PrivateKey</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestAnnounce">RequestAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestPrepareAnnounce">RequestPrepareAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#timeSynchronizationResult">TimeSynchronizationResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaData">TransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaDataPair">TransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaData">UnconfirmedTransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaDataPair">UnconfirmedTransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#error-object">Error object</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixB.html#error-messages">Error messages</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="cell medium-auto off-canvas-content" data-off-canvas-content>
+        <div class="sections">
+          <section id="node-related-requests" data-magellan-target="node-related-requests">
+            <h1>>Node related requests</h1>
+            <p class="lead">
+              Nodes are the entities that exchange data in a network. A node is essentially a NIS instance running on a computer.
+              To be able to communicate with the network, a node needs to be booted. Through node requests it is possible to discover
+              other nodes in the network, learn about other nodes experiences and get information about their current chain height.
+            </p>
+            <p>
+              Node structure consists of 3 parts:
+              <ul>
+                <li></li>identity
+                <li></li>endpoint
+                <li></li>>meta data
+              </ul>
+            </p>
+            <p>
+              Every node is tied to an identity which is represented by an account. That way nodes are easier to identify. A node is
+              given an identity during the boot process.
+            </p>
+            <p>The endpoint of a node holds information about the IP address, the port and the protocol used for communication.</p>
+            <p>The meta data holds additional information about the NIS version and the platform NIS is running on.</p>
+            <p>A node groups the set of neighbor nodes into several subsets by assigning a status to each node. The possible statuses are:</p>
+            <table>
+              <tr>
+                <td>active</td>
+                <td>
+                  Nodes that have this status can be successfully communicated with. Whenever a node is selecting a node for
+                  communication, it will pick a node from the set of active nodes.
+                </td>
+              </tr>
+              <tr>
+                <td>inactive</td>
+                <td>Inactive nodes are nodes with which it is not possible to establish a connection.</td>
+              </tr>
+              <tr>
+                <td>busy</td>
+                <td>
+                  A node is set to status 'busy' if a connection can be established but the node did not answer a request within a
+                  certain time limit.
+                </td>
+              </tr>
+              <tr>
+                <td>failure</td>
+                <td>
+                  The status failure is assigned to a remote node in case there is severe error during communication. This can for
+                  instance be due to the remote node using a different protocol or the remote node using an identity different from
+                  what was expected.
+                </td>
+              </tr>
+              <tr>
+                <td>unknown</td>
+                <td>This status is given to a node if there is no information about the status available.</td>
+              </tr>
+            </table>
+            <p>
+              <em>Appendix A:</em> <a href="AppendixA.html#node">Node</a> has more information and an example JSON Node object. A node
+              object has the following fields:
+            </p>
+            <table>
+              <tr>
+                <td>name</td>
+                <td>The name of the node. This can be any string.</td>
+              </tr>
+              <tr>
+                <td>public-key</td>
+                <td>The public key used to identify the node.</td>
+              </tr>
+              <tr>
+                <td>protocol</td>
+                <td>The protocol used for the communication (currently only HTTP is supported).</td>
+              </tr>
+              <tr>
+                <td>port</td>
+                <td>The port used for the communication.</td>
+              </tr>
+              <tr>
+                <td>host</td>
+                <td>The IP address of the endpoint.</td>
+              </tr>
+              <tr>
+                <td>application</td>
+                <td>The name of the application that is running the node.</td>
+              </tr>
+              <tr>
+                <td>version</td>
+                <td>The version of the application.</td>
+              </tr>
+              <tr>
+                <td>platform</td>
+                <td>The underlying platform (OS, java version).</td>
+              </tr>
+            </table>
+          </section>
+          <section id="requesting-information-about-a-node" data-magellan-target="requesting-information-about-a-node">
+            <h2>Requesting information about a node</h2>
+          </section>
+          <section id="basic-node-information" data-magellan-target="basic-node-information">
+            <h3>Basic node information</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/info</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets basic information about a node. Using IP 127.0.0.1 gets information about the local node.</dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/info">http://127.0.0.1:7890/node/info</a></dd>
+              <dt>Example of returned JSON <a href="AppendixA.html#node">Node</a></dt>
+              <dd>
+<pre>
+{
+    "metaData":
+    {
+        "application": "NIS",
+        "version": "0.4.33-BETA",
+        "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+    },
+    "endpoint":
+    {
+        "protocol": "http",
+        "port": 7890,
+        "host": "81.224.224.156"
+    },
+    "identity":
+    {
+        "name": "Alice",
+        "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+    }
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has not been booted yet, NIS will return a JSON error object. See <em>Appendix A:</em>
+                <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="extended-node-information" data-magellan-target="extended-node-information">
+            <h3>Extended node information</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/extended-info</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets extended information about a node. Using IP 127.0.0.1 gets extended information about the local node.</dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/extended-info">http://127.0.0.1:7890/node/extended-info</a></dd>
+              <dt>Example of returned JSON <a href="AppendixA.html#nisNodeInfo">NisNodeInfo</a> object:</dt>
+              <dd>
+<pre>
+{
+    "node":
+    {
+        "metaData":
+        {
+            "application": "NIS",
+            "version": "0.4.33-BETA",
+            "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+        },
+        "endpoint":
+        {
+            "protocol": "http",
+            "port": 7890,
+            "host": "81.224.224.156"
+        },
+        "identity":
+        {
+            "name": "Alice",
+            "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+        }
+    },
+    "nisInfo":
+    {
+        "currentTime": 9288341,
+        "application": "NEM Infrastructure Server",
+        "startTime": 9238484,
+        "version": "0.4.33-BETA",
+        "signer": "CN=VeriSign Class 3 Code Signing 2010 CA,OU=Terms of use at https://www.verisign.com/rpa (c)10,OU=VeriSign Trust Network,O=VeriSign\\, Inc.,C=US"
+    }
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has not been booted yet, NIS will return a JSON error object. See <em>Appendix A:</em>
+                <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="request-for-discovering-the-neighborhood-of-a-node" data-magellan-target="request-for-discovering-the-neighborhood-of-a-node">
+            <h2>Request for discovering the neighborhood of a node</h2>
+          </section>
+          <section id="complete-neighborhood" data-magellan-target="complete-neighborhood">
+            <h3>Complete neighborhood</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/peer-list/all</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets an array of all known nodes in the neighborhood.</dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/peer-list/all">http://127.0.0.1:7890/node/peer-list/all</a></dd>
+              <dt>
+                Example of returned JSON <a href="AppendixA.html#nodeCollection">NodeCollection</a> object (&lt;Node&gt; denotes a
+                <a href="AppendixA.html#node">Node</a> object):
+              </dt>
+              <dd>
+<pre>
+{
+    "inactive":
+    [
+        &lt;Node&gt;,
+        &lt;Node&gt;
+    ],
+    "active":
+    [
+        &lt;Node&gt;,
+        &lt;Node&gt;
+    ],
+    "busy":
+    [
+        &lt;Node&gt;,
+        &lt;Node&gt;
+    ],
+    "failure":
+    [
+        &lt;Node&gt;,
+        &lt;Node&gt;
+    ]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has not been booted yet, NIS will return a JSON error object. See <em>Appendix A:</em>
+                <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="reachable-neighborhood" data-magellan-target="reachable-neighborhood">
+            <h3>Reachable neighborhood</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/peer-list/reachable</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets an array of all nodes with status 'active' in the neighborhood.</dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/peer-list/reachable">http://127.0.0.1:7890/node/peer-list/reachable</a></dd>
+              <dt>
+                Example of returned JSON <a href="AppendixA.html#nodeCollection">NodeCollection</a> object (&lt;Node&gt; denotes a
+                <a href="AppendixA.html#node">Node</a> object):
+              </dt>
+              <dd>
+<pre>
+{
+    "data":
+    [
+        "metaData":
+        {
+            "application": "NIS",
+            "version": "0.4.33-BETA",
+            "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+        },
+        "endpoint":
+        {
+            "protocol": "http",
+            "port": 7890,
+            "host": "81.224.224.156"
+        },
+        "identity":
+        {
+            "name": "Alice",
+            "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+        }
+    ]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has not been booted yet, NIS will return a JSON error object. See
+                <em>Appendix A:</em> <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="active-neighborhood" data-magellan-target="active-neighborhood">
+            <h3>Active neighborhood</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/peer-list/active</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets an array of active nodes in the neighborhood that are selected for broadcasts.</dd>
+              <dt>Parameter:</dd>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/peer-list/active">http://127.0.0.1:7890/node/peer-list/active</a></dd>
+              <dt>
+                Example of returned JSON <a href="AppendixA.html#nodeCollection">NodeCollection</a> object (&lt;Node&gt; denotes a
+                <a href="AppendixA.html#node">Node</a> object):
+              </dt>
+              <dd>
+<pre>
+{
+    "data":
+    [
+        "metaData":
+        {
+            "application": "NIS",
+            "version": "0.4.33-BETA",
+            "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+        },
+        "endpoint":
+        {
+            "protocol": "http",
+            "port": 7890,
+            "host": "81.224.224.156"
+        },
+        "identity":
+        {
+            "name": "Alice",
+            "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+        }
+    ]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>In case the node has not been booted yet, NIS will return a JSON error object. See
+                  <em>Appendix A:</em> <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                  <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="maximum-chain-height-in-the-active-neighborhood" data-magellan-target="maximum-chain-height-in-the-active-neighborhood">
+            <h3>Maximum chain height in the active neighborhood</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/active-peers/max-chain-height</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Requests the chain height from every node in the active node list (described in <a href="#active-neighborhood">Active
+                neighborhood</a>) and returns the maximum height seen.
+              </dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/active-peers/max-chain-height">http://127.0.0.1:7890/node/active-peers/max-chain-height</a></dd>
+              <dt>Example of returned JSON <a href="AppendixA.html#blockHeight">BlockHeight</a> object:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "height": 43920
+}
+</pre>
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has not been booted yet, NIS will return a JSON error object. See
+                <em>Appendix A:</em> <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="requesting-node-experiences" data-magellan-target="requesting-node-experiences">
+            <h2>Requesting node experiences</h2>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/experiences</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets an array of node experiences from another node. Each node saves its experiences with other nodes in an internal
+                  map. Sharing experiences helps nodes to select honest nodes for communication.
+              </dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/node/experiences">http://127.0.0.1:7890/node/experiences</a></dd>
+              <dt>Example of returned array of JSON <a href="AppendixA.html#extendedNodeExperiencePair">ExtendedNodeExperiencePair</a> objects:</dt>
+              <dd class="callout secondary">
+<pre>
+{
+    "data":
+    [{
+        "node":
+        {
+            "metaData":
+            {
+                "application": "NIS",
+                "version": "0.4.33-BETA",
+                "platform": "Oracle Corporation (1.8.0_25) on Windows 8"
+            },
+            "endpoint":
+            {
+                "protocol": "http",
+                "port": 7890,
+                "host": "81.224.224.156"
+            },
+            "identity":
+            {
+                "name": "Alice",
+                "public-key": "a1aaca6c17a24252e674d155713cdf55996ad00175be4af02a20c67b59f9fe8a"
+            }
+        },
+        "syncs": 3,
+        "experience":
+        {
+            "s": 1,
+            "f": 0
+        }
+    }]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has not been booted yet, NIS will return a JSON error object. See <em>Appendix A:</em>
+                <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="booting-the-local-node" data-magellan-target="booting-the-local-node">
+            <h2>Booting the local node</h2>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/node/boot</td>
+                <td><b>POST</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Boots the local node and thus assign an account (the identity) to the local node. <strong>No return value</strong></dd>
+              <dt>Parameter:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>bootNodeRequest</td>
+                    <td>A BootNodeRequest JSON object asdescribed in <em>Appendix A:</em> <a href="AppendixA.html#bootNodeRequest">BootNodeRequest</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>Example:</dt>
+              <dd>Request cannot be performed in a browser.</dd>      
+              <dt>Possible Errors:</dt>
+              <dd>
+                In case the node has already been booted, NIS will return a JSON error object. See
+                <em>Appendix A:</em> <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,536 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEM NIS API Documentation</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+    <div class="title-bar" data-responsive-toggle="responsive-menu" data-hide-for="medium">
+      <button class="menu-icon" type="button" data-open="offCanvasMenu"></button>
+      <div class="title-bar-title">Menu</div>
+    </div>
+    <div class="grid-x grid-padding-x">
+      <div class="cell off-canvas position-left reveal-for-medium" id="offCanvasMenu" data-off-canvas>
+        <ul class="vertical menu" data-accordion-menu data-submenu-toggle="true" data-magellan>
+          <li class="menu-text"><img src="image/logo.png" alt="NEM Logo"></li>
+          <li class="tabs-title"><a href="index.html#introduction">Introduction</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="index.html#general-information">General Information</a></li>
+              <li class="tabs-title"><a href="index.html#installation">Installation</a></li>
+              <li class="tabs-title"><a href="index.html#requests">Requests</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequests.html#NIS-status-related-requests">NIS status related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequests.html#heart-beat-request">Heart beat request</a></li>
+              <li class="tabs-title"><a href="NISrequests.html#status-request">Status Request</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AccountRequests.html#account-related-requests">Account related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-data">Retrieving account data</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AccountRequests.html#generating-new-account-data">Generating new account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-data">Requesting the account data</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-original-account-data-for-a-delegate-account">Requesting the original account data for a delegate account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-the-account-status">Requesting the account status</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-transaction-data-for-an-account">Requesting transaction data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#transaction-data-with-decoded-messages">Transaction data with decoded messages</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#requesting-harvest-info-data-for-an-account">Requesting harvest info data for an account</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-account-importances-for-accounts">Retrieving account importances for accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-namespaces-that-an-account-owns">Retrieving namespaces that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaic-definitions-that-an-account-has-created">Retrieving mosaic definitions that an account has created</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-mosaics-that-an-account-owns">Retrieving mosaics that an account owns</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#locking-and-unlocking-accounts">Locking and unlocking accounts</a></li>
+                  <li class="tabs-title"><a href="AccountRequests.html#retrieving-the-unlock-info">Retrieving the unlock info</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AccountRequests.html#retrieving-historical-account-data">Retrieving historical account data</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title is-active"><a href="BlockchainRequests.html#block-chain-related-requests">Block chain related requests</a>
+            <ul class="menu vertical nested is-active">
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-the-block-chain-status-information">Requesting the block chain status information</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-height">Block chain height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#block-chain-score">Block chain score</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#last-block-of-the-block-chain-score">Last block of the block chain score</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="BlockchainRequests.html#requesting-parts-of-the-block-chain">Requesting parts of the block chain</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-a-block-with-a-given-height">Getting a block with a given height</a></li>
+                  <li class="tabs-title"><a href="BlockchainRequests.html#getting-part-of-a-chain">Getting part of a chain</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NodeRequests.html#node-related-requests">Node related requests</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-information-about-a-node">Requesting information about a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#basic-node-information">Basic node information</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#extended-node-information">Extended node information</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#request-for-discovering-the-neighborhood-of-a-node">Request for discovering the neighborhood of a node</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NodeRequests.html#complete-neighborhood">Complete neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#reachable-neighborhood">Reachable neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#active-neighborhood">Active neighborhood</a></li>
+                  <li class="tabs-title"><a href="NodeRequests.html#maximum-chain-height-in-the-active-neighborhood">Maximum chain height in the active neighborhood</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NodeRequests.html#requesting-node-experiences">Requesting node experiences</a></li>
+              <li class="tabs-title"><a href="NodeRequests.html#booting-the-local-node">Booting the local node</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces-and-mosaics">Namespaces and Mosaics</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NamespacesMosaics.html#namespaces">Namespaces</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-root-namespaces">Retrieving root namespaces</a></li>
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-a-specific-namespace">Retrieving a specific namespace</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="NamespacesMosaics.html#mosaics">Mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="NamespacesMosaics.html#retrieving-mosaic-definitions">Retrieving mosaic definitions</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-transactions">Initiating transactions</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transaction">Initiating a transaction</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-transfer-transaction">Initiating a transfer transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-1-transfer-transactions">Version 1 transfer transactions</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#version-2-transfer-transactions">Version 2 transfer transactions</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#converting-an-account-to-a-multisig-account">Converting an account to a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#initiating-a-multisig-transaction">Initiating a multisig transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#cosigning-multisig-transaction">Cosigning multisig transaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#adding-and-removing-cosignatories">Adding and removing cosignatories</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#how-to-use-a-multisig-account">How to use a multisig account</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#provisioning-a-namespace">Provisioning a namespace</a></li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-mosaics">Creating mosaics</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-mosaic-definition">Creating a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#altering-a-mosaic-definition">Altering a mosaic definition</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#changing-the-mosaic-supply">Changing the mosaic supply</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#creating-a-signed-transaction">Creating a signed transaction</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#gathering-data-for-the-signature">Gathering data for the signature</a></li>
+                  <li class="tabs-title"><a href="InitiatingTransactions.html#sending-the-data-to-NIS">Sending the data to NIS</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="InitiatingTransactions.html#transaction-fees">Transaction fees</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#requests-for-additional-information-from-NIS">Requests for additional information from NIS</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-the-network-time">Monitoring the network time</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-incoming-and-outgoing-calls">Monitoring incoming and outgoing calls</a></li>
+              <li class="tabs-title"><a href="NISrequestsAdditionalInfo.html#monitoring-timers">Monitoring timers</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixA.html#appendix-A:-description-of-the-JSON-structures">Appendix A: Description of the JSON Structures</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixA.html#accountHistoricalDataViewModel">AccountHistoricalDataViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountImportanceViewModel">AccountImportanceViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountInfo">AccountInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaData">AccountMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountMetaDataPair">AccountMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#accountPrivateKeyTransactionsPage">AccountPrivateKeyTransactionsPage</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#applicationMetaData">ApplicationMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#auditCollection">AuditCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#block">Block</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockChainScore">BlockChainScore</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#blockHeight">BlockHeight</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#bootNodeRequest">BootNodeRequest</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#communicationTimeStamps">CommunicationTimeStamps</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerBlockViewModel">ExplorerBlockViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#explorerTransferViewModel">ExplorerTransferViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#extendedNodeExperiencePair">ExtendedNodeExperiencePair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#harvestInfo">HarvestInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#keyPairViewModel">KeyPairViewModel</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transaction-objects">Transaction objects</a>
+                <ul class="menu vertical nested">
+                  <li class="tabs-title"><a href="AppendixA.html#importanceTransferTransaction">ImportanceTransferTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionCreationTransaction">MosaicDefinitionCreationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#mosaicSupplyChangeTransaction">MosaicSupplyChangeTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigAggregateModificationTransaction">MultisigAggregateModificationTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigCosignatoryModification">MultisigCosignatoryModification</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigSignatureTransaction">MultisigSignatureTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#multisigTransaction">MultisigTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#provisionNamespaceTransaction">ProvisionNamespaceTransaction</a></li>
+                  <li class="tabs-title"><a href="AppendixA.html#transferTransaction">TransferTransaction</a></li>
+                </ul>
+              </li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaic">Mosaic</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinition">MosaicDefinition</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicDefinitionMetaDataPair">MosaicDefinitionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicProperties">MosaicProperties</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicLevy">MosaicLevy</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#mosaicId">MosaicId</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespace">Namespace</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#namespaceMetaDataPair">NamespaceMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAnnounceResult">NemAnnounceResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemAsyncTimerVisitor">NemAsyncTimerVisitor</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nemRequestResult">NemRequestResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nisNodeInfo">NisNodeInfo</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#node">Node</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#nodeCollection">NodeCollection</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#privateKey">PrivateKey</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestAnnounce">RequestAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#requestPrepareAnnounce">RequestPrepareAnnounce</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#timeSynchronizationResult">TimeSynchronizationResult</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaData">TransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#transactionMetaDataPair">TransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaData">UnconfirmedTransactionMetaData</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#unconfirmedTransactionMetaDataPair">UnconfirmedTransactionMetaDataPair</a></li>
+              <li class="tabs-title"><a href="AppendixA.html#error-object">Error object</a></li>
+            </ul>
+          </li>
+          <li class="tabs-title"><a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a>
+            <ul class="menu vertical nested">
+              <li class="tabs-title"><a href="AppendixB.html#error-messages">Error messages</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="cell medium-auto off-canvas-content" data-off-canvas-content>
+        <div class="sections">
+          <section id="block-chain-related-requests" data-magellan-target="block-chain-related-requests">
+            <h1>Block chain related requests</h1>
+            <p class="lead">
+              NEM builds a block chain which contains every bit of information needed. Subsequent blocks in the block chain have
+              increasing heights that differ by one. Each block can contain transactions. Transactions build the basis of all account
+              activity. It is therefore important to understand the concept and the structures of blocks and transactions.
+            </p>
+            <p>
+              Blocks are generated by accounts. If an account generates a block and the block gets included in the block chain, the
+              generating account, called the harvester, gets all the transaction fees for transactions that are included in the block.
+              A harvester will therefore usually include as many transactions as possible.
+            </p>
+            <p>
+              Transactions reflect all account activities. In order for a client to have an up to date balance for every account it is
+              crucial to know about every transaction that occurred and therefore the client must have knowledge about every single
+              block in the chain (one says: the client must be synchronized with the block chain).
+            </p>
+            <p>
+              Whenever timestamps are used, the time reflects the network time. NEM has a time synchronization mechanism which lets
+              all node agree on how many seconds since the nemesis have elapsed. This common time is called network time.
+            </p>
+            <p>
+              The following chapters will first introduce the fields used in the block and transaction structure and then explain how
+              a client can request parts of the block chain.
+            </p>
+            <p>
+              Blocks are transferred using a JSON Block object. <em>Appendix A:</em> <a href="AppendixA.html#block">Block</a> has more information
+              and an example JSON Block object. The following fields are in the structure:
+            </p>
+            <table>
+              <tr>
+                <td>timeStamp</td>
+                <td>The network time when the block was created.</td>
+              </tr>
+              <tr>
+                <td>signature</td>
+                <td>
+                    The signature of the block. All blocks in the chain are signed by the harvesters.
+                    <br/>This way any node can check if the block has been altered by some evil entity.
+                </td>
+              </tr>
+              <tr>
+                <td>prevBlockHash</td>
+                <td>The sha3-256 hash of the previous block as hexadecimal string.</td>
+              </tr>
+              <tr>
+                <td>type</td>
+                <td>
+                  The block type. There are currently two block types used:
+                  <ul>
+                    -1: Nemesis block type. This block type appears only once in the chain.<br/>
+                    1: Regular block type. All blocks with height &gt; 1 have this type.<br/>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>transactions</td>
+                <td>
+                  The array of transactions. See <em>Appendix A:</em> <a href="AppendixA.html#transaction">Transaction</a> for more details.
+                  A block can contain up to 120 transactions.
+                </td>
+              </tr>
+              <tr>
+                <td>version</td>
+                <td>
+                  The block version. The following versions are supported:
+                  <ul>
+                    0x68 &lt;&lt; 24 + 1 (1744830465 as 4 byte integer): the main network version<br/>
+                    0x60 &lt;&lt; 24 + 1 (1610612737 as 4 byte integer): the mijin network version<br/>
+                    0x98 &lt;&lt; 24 + 1 (-1744830463 as 4 byte integer): the test network version<br/>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td>signer</td>
+                <td>The public key of the harvester of the block as hexadecimal string.</td>
+              </tr>
+              <tr>
+                <td>height</td>
+                <td>The height of the block. Each block has a unique height. Subsequent blocks differ in height by 1.</td>
+              </tr>
+            </table>
+            <p>
+              Transactions were already discussed in <a href="AccountRequests.html#account-related-requests">Account related requests</a>.
+              See also <em>Appendix A:</em> <a href="AppendixA.html#transaction">Transaction</a> for an example JSON transaction object.
+            </p>
+          </section>
+          <section id="requesting-the-block-chain-status-information" data-magellan-target="requesting-the-block-chain-status-information">
+            <h2>Requesting the block chain status information</h2>
+          </section>
+          <section id="block-chain-height" data-magellan-target="block-chain-height">
+            <h3>Block chain height</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/chain/height</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets the current height of the block chain.</dd>
+              
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/chain/height">http://127.0.0.1:7890/chain/height</a></dd>
+              <dt>Example of returned JSON object:</dt>
+              <dd>
+<pre>
+{
+    "height": 42799
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>None.</dd>
+            </dl>
+          </section>
+          <section id="block-chain-score" data-magellan-target="block-chain-score">
+            <h3>Block chain score</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/chain/score</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Gets the current score of the block chain. The higher the score, the better the chain. During synchronization, nodes
+                try to get the best block chain in the network.
+              </dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/chain/score">http://127.0.0.1:7890/chain/score</a></dd>
+              <dt>Example of returned JSON object:</dt>
+              <dd>
+<pre>
+{
+    "score": "18722d5a7d590deb"
+}
+</pre>
+              </dd>
+                <dt>Possible Errors:</dt>
+                <dd>None.</dd>
+            </dl>
+          </section>
+          <section id="last-block-of-the-block-chain-score" data-magellan-target="last-block-of-the-block-chain-score">
+            <h3>Last block of the block chain score</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/chain/last-block</td>
+                <td><b>GET</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets the current last block of the chain.</dd>
+              <dt>Parameter:</dt>
+              <dd>None.</dd>
+              <dt>Example:</dt>
+              <dd><a href="http://127.0.0.1:7890/chain/last-block">http://127.0.0.1:7890/chain/last-block</a></dd>
+              <dt>Example of returned JSON object (main network):</dt>
+              <dd>
+<pre>
+{
+    "timeStamp": 9232968,
+    "signature": "0a1351ef3e9b19c601e804a6d329c9ade662051d1da2c12c3aec9934353e421c79de7d8e59b127a8ca9b9d764e3ca67daefcf1952f71bc36f747c8a738036b05",
+    "prevBlockHash":
+    {
+        "data": "58efa578aea719b644e8d7c731852bb26d8505257e03a897c8102e8c894a99d6"
+    },
+    "type": 1,
+    "transactions": [ ],
+    "version": 1744830465,
+    "signer": "2afca04d2cb8d16cf3656274bc55b95e60be823cfb7230d82f791ed42a309ee7",
+    "height": 42804
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>None.</dd>
+            </dl>
+          </section>
+          <section id="requesting-parts-of-the-block-chain" data-magellan-target="requesting-parts-of-the-block-chain">
+            <h2>Requesting parts of the block chain</h2>
+            <p>
+              NIS can supply either individual blocks identified by block height or block hash or can supply up to 10 blocks beginning at
+              a certain height.
+            </p>
+          </section>
+          <section id="getting-a-block-with-a-given-height" data-magellan-target="getting-a-block-with-a-given-height">
+            <h3>Getting a block with a given height</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/block/at/public</td>
+                <td><b>POST</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>Gets a block from the chain that has the given height.</dd>
+              <dt>Parameter:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>blockHeight</td>
+                    <td>A BlockHeight JSON object as described in <em>Appendix A:</em> <a href="AppendixA.html#blockHeight">BlockHeight</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>Example:</dt>
+              <dd>Request cannot be performed in a browser.</dd>
+              <dt>Example of returned JSON object (test network):</dt>
+              <dd>
+<pre>
+{
+    "timeStamp": 9232942,
+    "signature": "005f91b8908fc173a428ff8e8c4a0ee0d69e4004aed0d08f27690b6b6672ef74ccc6b89695bed5f29b0f4a812cb84bfa459f52a4e14a11e574793969f0e1a30f",
+    "prevBlockHash":
+    {
+        "data": "f721e563b4431594c5af6f6be0a913f47f0aca6c3b8ee6a703bfe175ee54babf"
+    },
+    "type": 1,
+    "transactions": [ ],
+    "version": -1744830463,
+    "signer": "78e121cc1cf63424651ec64251e78efda81386c9f5e9eb4cb08b2a2192c9dce5",
+    "height": 42803
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                If the block with the specified height cannot be found in the database, NIS will return a JSON error object. See
+                <em>Appendix A:</em> <a href="AppendixA.html#error-object">Error object</a> or more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> the error message.
+              </dd>
+            </dl>
+          </section>
+          <section id="getting-part-of-a-chain" data-magellan-target="getting-part-of-a-chain">
+            <h3>Getting part of a chain</h3>
+            <table>
+              <tr>
+                <th class="text-left">API path:</th>
+                <th class="text-left">Request type:</th>
+              </tr>
+              <tr>
+                <td>/local/chain/blocks-after</td>
+                <td><b>POST</b></td>
+              </tr>
+            </table>
+            <dl>
+              <dt>Description:</dt>
+              <dd>
+                Gets up to 10 blocks after given block height from the chain. If the database contains less than 10 block after the
+                given height, then less blocks are returned. The returned data is an array of
+                <a href="AppendixA.html#explorerBlockViewModel">ExplorerBlockViewModel</a> JSON objects.
+              </dd>
+              <dt>Parameter:</dt>
+              <dd>
+                <table>
+                  <tr>
+                    <td>blockHeight</td>
+                    <td>A BlockHeight JSON object as described in <em>Appendix A:</em> <a href="AppendixA.html#blockHeight">BlockHeight</a>.</td>
+                  </tr>
+                </table>
+              </dd>
+              <dt>Example:</dt>
+              <dd>Request cannot be performed in a browser.</dd>
+              <dt>Example of returned JSON object:</dt>
+              <dd>
+<pre>
+{
+    "data":
+    [{
+        "txes":
+        [{
+            "tx": &lt;ExplorerViewModelTransaction&gt;
+            "tx": &lt;ExplorerViewModelTransaction&gt;
+        }],
+        "block": &lt;Block&gt;
+        "hash": "8ca8a3e01ac0eb482e668fda74141984ba118b027fc5f1f67d2d36a38bf48c49"
+    }]
+}
+</pre>
+              </dd>
+              <dt>Possible Errors:</dt>
+              <dd>
+                If the block height supplied is not positive, NIS will return a JSON error object. See <em>Appendix A:</em>
+                <a href="AppendixA.html#error-object">Error object</a> for more information of the error object and
+                <a href="AppendixB.html#appendix-B:-NIS-errors">Appendix B: NIS Errors</a> for the error message.
+              </dd>
+            </dl>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
